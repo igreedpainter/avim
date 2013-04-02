@@ -18,11 +18,22 @@
 */
 
 
-#ifndef CLIENT_H
-#define CLIENT_H
+#ifndef _AVIM_CLIENT_H
+#define _AVIM_CLIENT_H
+
+#include <boost/asio.hpp>
+
+namespace avim {
 
 class client
 {
+public:
+	client(boost::asio::io_service & io_service);
+
+private:
+	boost::asio::io_service & m_io_service;
 };
+
+} // namespace avim
 
 #endif // CLIENT_H

@@ -20,3 +20,17 @@
 
 #include "client.h"
 
+namespace avim{
+
+
+
+
+
+
+
+
+
+
+
+}
+
