@@ -56,7 +56,7 @@ public:
  
  	template<class Handler>
  	void async_login(const std::string & username, const std::string & passwd,
- 				Handler handler, bool auto_regeister);
+ 				Handler handler, bool auto_regeister = false);
 
 	// --------------------
 	// 开始异步获取服务器传来的信息
