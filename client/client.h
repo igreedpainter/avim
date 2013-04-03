@@ -28,10 +28,17 @@ namespace avim {
 class client
 {
 public:
-	client(boost::asio::io_service & io_service);
+	client(boost::asio::io_service & io_service, std::string avimserver = "avim.avplayer.org:8090");
+
+	// -------------------
+	// 执行异步登录到 avimserver, 如果用户不存在，就注册一个.
+	template<class Handler>
+	async_login(std::string username, std::string passwd, Handler handler, bool autoregeister = false);
+
 
 private:
 	boost::asio::io_service & m_io_service;
+	std::string	m_avimserver;
 };
 
 } // namespace avim

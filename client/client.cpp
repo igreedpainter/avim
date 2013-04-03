@@ -22,13 +22,11 @@
 
 namespace avim{
 
+client::client( boost::asio::io_service& io_service, std::string avimserver )
+  : m_io_service(io_service), m_avimserver(avimserver)
+{
 
-
-
-
-
-
-
+}
 
 
 
