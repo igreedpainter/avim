@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 2.6)
 
 project(avim)
 
+option(RUN_PROTOC "run protoc to generate protobuf protocol parser" OFF)
+
 find_package(Boost 1.48 REQUIRED thread system)
 find_package(Protobuf REQUIRED)
 
