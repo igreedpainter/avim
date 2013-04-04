@@ -34,10 +34,17 @@ namespace base{
 
 typedef avim::proto::base::avID avid;
 
+// -------------------------------------------------------
+//
+// 这是一个基础类，用于实现avim基础协议。avim 的基础协议用于执行：
+//	1 - 客户端认证
+//	2 - 消息的可靠转发
+//
+// avim-im 协议将利用可靠的基础协议实现即使聊天功能.
 class client
 {
 public:
-	client(boost::asio::io_service & io_service, const std::string & avimserver = std::string("avim.avplayer.org:8090"));
+	client(boost::asio::io_service & io_service, const std::string & avimserver = std::string("avim.avplayer.org:8090"), const std::string & application = "avim");
 
 	// -------------------
 	// 设置 CA 检查函数 // TODO, 类型？.
@@ -119,6 +126,7 @@ public:
 private:
 	boost::asio::io_service & m_io_service;
 	std::string	m_avimserver;
+	std::string m_application;
 };
 
 } // namespace base

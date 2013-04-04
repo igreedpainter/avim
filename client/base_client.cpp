@@ -22,8 +22,8 @@
 
 namespace avim{
 namespace base{
-client::client( boost::asio::io_service& io_service, const std::string &avimserver )
-  : m_io_service(io_service), m_avimserver(avimserver)
+client::client( boost::asio::io_service& io_service, const std::string &avimserver, const std::string & application)
+  : m_io_service(io_service), m_avimserver(avimserver), m_application(application)
 {
 	
 }
