@@ -10,9 +10,12 @@ find_package(Protobuf REQUIRED)
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${Boost_INCLUDE_DIRS})
+include_directories(avproxy/include/)
+include_directories(.)
 
 link_libraries(${Boost_LIBRARIES})
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 add_subdirectory(protocol)
 add_subdirectory(lib)

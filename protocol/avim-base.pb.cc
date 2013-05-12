@@ -28,7 +28,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* avimPacket_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   avimPacket_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* avimPacket_messagetype_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* avClientControl_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   avClientControl_reflection_ = NULL;
@@ -72,12 +71,11 @@ void protobuf_AssignDesc_avim_2dbase_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(avID));
   avimPacket_descriptor_ = file->message_type(1);
-  static const int avimPacket_offsets_[8] = {
+  static const int avimPacket_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, src_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, dest_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, all_ofline_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, application_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, avmessage_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, avmessage_reply_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, avctl_),
@@ -93,9 +91,9 @@ void protobuf_AssignDesc_avim_2dbase_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(avimPacket));
-  avimPacket_messagetype_descriptor_ = avimPacket_descriptor_->enum_type(0);
   avClientControl_descriptor_ = file->message_type(2);
-  static const int avClientControl_offsets_[1] = {
+  static const int avClientControl_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avClientControl, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avClientControl, digest_),
   };
   avClientControl_reflection_ =
@@ -212,32 +210,30 @@ void protobuf_AddDesc_avim_2dbase_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\017avim-base.proto\022\017avim.proto.base\"M\n\004av"
     "ID\022\020\n\010username\030\001 \002(\t\022\016\n\006domain\030\002 \002(\t\022\020\n\010"
-    "resource\030\003 \001(\t\022\021\n\tuseragent\030\004 \001(\t\"\265\003\n\nav"
+    "resource\030\003 \001(\t\022\021\n\tuseragent\030\004 \001(\t\"\263\002\n\nav"
     "imPacket\022\"\n\003src\030\001 \002(\0132\025.avim.proto.base."
     "avID\022#\n\004dest\030\002 \003(\0132\025.avim.proto.base.avI"
     "D\022\031\n\nall_ofline\030\004 \002(\010:\005false\022\031\n\013applicat"
-    "ion\030\003 \002(\t:\004avim\0225\n\004type\030\005 \002(\0162\'.avim.pro"
-    "to.base.avimPacket.messagetype\0223\n\tavmess"
-    "age\030\006 \001(\0132 .avim.proto.base.avPacketMess"
-    "age\022\?\n\017avmessage_reply\030\007 \001(\0132&.avim.prot"
-    "o.base.avPacketMessageReplay\0220\n\005avctl\030\200\002"
-    " \001(\0132 .avim.proto.base.avClientControl\"I"
-    "\n\013messagetype\022\r\n\tMESSAGING\020\000\022\024\n\020MESSAGIN"
-    "G_REPLAY\020\001\022\021\n\rCLIENTCONTROL\020\002\032\002\020\001\"_\n\017avC"
-    "lientControl\022\016\n\006digest\0302 \001(\t\"<\n\013controlt"
-    "ype\022\t\n\005LOGIN\020\000\022\021\n\rAUTH_REQUIRED\020\001\022\017\n\013DIG"
-    "EST_AUTH\020\002\"3\n\017avPacketMessage\022\016\n\006length\030"
-    "\001 \002(\004\022\020\n\010msgblock\030\002 \001(\014\"\200\003\n\025avPacketMess"
-    "ageReplay\022=\n\006status\030\001 \002(\0162-.avim.proto.b"
-    "ase.avPacketMessageReplay.Status\022G\n\013mult"
-    "istatus\030\002 \001(\01322.avim.proto.base.avPacket"
-    "MessageReplay.MultiStatus\032q\n\013MultiStatus"
-    "\022=\n\006status\030\001 \002(\0162-.avim.proto.base.avPac"
-    "ketMessageReplay.Status\022#\n\004avid\030\002 \002(\0132\025."
-    "avim.proto.base.avID\"l\n\006Status\022\r\n\tDELIVE"
-    "RED\020\000\022\013\n\007SUCCESS\020\000\022\n\n\006FAILED\020\001\022\024\n\020SUCCES"
-    "S_OFFLINED\020\002\022 \n\034MULTIADDREDD_STATUS_ATTA"
-    "CHED\020\003\032\002\020\001", 1090);
+    "ion\030\003 \002(\t:\004avim\0223\n\tavmessage\030\005 \001(\0132 .avi"
+    "m.proto.base.avPacketMessage\022\?\n\017avmessag"
+    "e_reply\030\006 \001(\0132&.avim.proto.base.avPacket"
+    "MessageReplay\0220\n\005avctl\030\200\002 \001(\0132 .avim.pro"
+    "to.base.avClientControl\"\233\001\n\017avClientCont"
+    "rol\022:\n\004type\030\001 \002(\0162,.avim.proto.base.avCl"
+    "ientControl.controltype\022\016\n\006digest\0302 \001(\t\""
+    "<\n\013controltype\022\t\n\005LOGIN\020\000\022\021\n\rAUTH_REQUIR"
+    "ED\020\001\022\017\n\013DIGEST_AUTH\020\002\"3\n\017avPacketMessage"
+    "\022\016\n\006length\030\001 \002(\004\022\020\n\010msgblock\030\002 \001(\014\"\200\003\n\025a"
+    "vPacketMessageReplay\022=\n\006status\030\001 \002(\0162-.a"
+    "vim.proto.base.avPacketMessageReplay.Sta"
+    "tus\022G\n\013multistatus\030\002 \001(\01322.avim.proto.ba"
+    "se.avPacketMessageReplay.MultiStatus\032q\n\013"
+    "MultiStatus\022=\n\006status\030\001 \002(\0162-.avim.proto"
+    ".base.avPacketMessageReplay.Status\022#\n\004av"
+    "id\030\002 \002(\0132\025.avim.proto.base.avID\"l\n\006Statu"
+    "s\022\r\n\tDELIVERED\020\000\022\013\n\007SUCCESS\020\000\022\n\n\006FAILED\020"
+    "\001\022\024\n\020SUCCESS_OFFLINED\020\002\022 \n\034MULTIADDREDD_"
+    "STATUS_ATTACHED\020\003\032\002\020\001", 1021);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "avim-base.proto", &protobuf_RegisterTypes);
   avID::default_instance_ = new avID();
@@ -663,36 +659,12 @@ void avID::Swap(avID* other) {
 
 // ===================================================================
 
-const ::google::protobuf::EnumDescriptor* avimPacket_messagetype_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return avimPacket_messagetype_descriptor_;
-}
-bool avimPacket_messagetype_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#ifndef _MSC_VER
-const avimPacket_messagetype avimPacket::MESSAGING;
-const avimPacket_messagetype avimPacket::MESSAGING_REPLAY;
-const avimPacket_messagetype avimPacket::CLIENTCONTROL;
-const avimPacket_messagetype avimPacket::messagetype_MIN;
-const avimPacket_messagetype avimPacket::messagetype_MAX;
-const int avimPacket::messagetype_ARRAYSIZE;
-#endif  // _MSC_VER
 ::std::string* avimPacket::_default_application_ = NULL;
 #ifndef _MSC_VER
 const int avimPacket::kSrcFieldNumber;
 const int avimPacket::kDestFieldNumber;
 const int avimPacket::kAllOflineFieldNumber;
 const int avimPacket::kApplicationFieldNumber;
-const int avimPacket::kTypeFieldNumber;
 const int avimPacket::kAvmessageFieldNumber;
 const int avimPacket::kAvmessageReplyFieldNumber;
 const int avimPacket::kAvctlFieldNumber;
@@ -721,7 +693,6 @@ void avimPacket::SharedCtor() {
   src_ = NULL;
   all_ofline_ = false;
   application_ = const_cast< ::std::string*>(_default_application_);
-  type_ = 0;
   avmessage_ = NULL;
   avmessage_reply_ = NULL;
   avctl_ = NULL;
@@ -776,7 +747,6 @@ void avimPacket::Clear() {
         application_->assign(*_default_application_);
       }
     }
-    type_ = 0;
     if (has_avmessage()) {
       if (avmessage_ != NULL) avmessage_->::avim::proto::base::avPacketMessage::Clear();
     }
@@ -855,33 +825,12 @@ bool avimPacket::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_type;
+        if (input->ExpectTag(42)) goto parse_avmessage;
         break;
       }
 
-      // required .avim.proto.base.avimPacket.messagetype type = 5;
+      // optional .avim.proto.base.avPacketMessage avmessage = 5;
       case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::avim::proto::base::avimPacket_messagetype_IsValid(value)) {
-            set_type(static_cast< ::avim::proto::base::avimPacket_messagetype >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(5, value);
-          }
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(50)) goto parse_avmessage;
-        break;
-      }
-
-      // optional .avim.proto.base.avPacketMessage avmessage = 6;
-      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_avmessage:
@@ -890,12 +839,12 @@ bool avimPacket::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_avmessage_reply;
+        if (input->ExpectTag(50)) goto parse_avmessage_reply;
         break;
       }
 
-      // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 7;
-      case 7: {
+      // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_avmessage_reply:
@@ -966,22 +915,16 @@ void avimPacket::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->all_ofline(), output);
   }
 
-  // required .avim.proto.base.avimPacket.messagetype type = 5;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      5, this->type(), output);
-  }
-
-  // optional .avim.proto.base.avPacketMessage avmessage = 6;
+  // optional .avim.proto.base.avPacketMessage avmessage = 5;
   if (has_avmessage()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, this->avmessage(), output);
+      5, this->avmessage(), output);
   }
 
-  // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 7;
+  // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
   if (has_avmessage_reply()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, this->avmessage_reply(), output);
+      6, this->avmessage_reply(), output);
   }
 
   // optional .avim.proto.base.avClientControl avctl = 256;
@@ -1027,24 +970,18 @@ void avimPacket::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->all_ofline(), target);
   }
 
-  // required .avim.proto.base.avimPacket.messagetype type = 5;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      5, this->type(), target);
-  }
-
-  // optional .avim.proto.base.avPacketMessage avmessage = 6;
+  // optional .avim.proto.base.avPacketMessage avmessage = 5;
   if (has_avmessage()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        6, this->avmessage(), target);
+        5, this->avmessage(), target);
   }
 
-  // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 7;
+  // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
   if (has_avmessage_reply()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        7, this->avmessage_reply(), target);
+        6, this->avmessage_reply(), target);
   }
 
   // optional .avim.proto.base.avClientControl avctl = 256;
@@ -1084,20 +1021,14 @@ int avimPacket::ByteSize() const {
           this->application());
     }
 
-    // required .avim.proto.base.avimPacket.messagetype type = 5;
-    if (has_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
-    }
-
-    // optional .avim.proto.base.avPacketMessage avmessage = 6;
+    // optional .avim.proto.base.avPacketMessage avmessage = 5;
     if (has_avmessage()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->avmessage());
     }
 
-    // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 7;
+    // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
     if (has_avmessage_reply()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1156,9 +1087,6 @@ void avimPacket::MergeFrom(const avimPacket& from) {
     if (from.has_application()) {
       set_application(from.application());
     }
-    if (from.has_type()) {
-      set_type(from.type());
-    }
     if (from.has_avmessage()) {
       mutable_avmessage()->::avim::proto::base::avPacketMessage::MergeFrom(from.avmessage());
     }
@@ -1185,7 +1113,7 @@ void avimPacket::CopyFrom(const avimPacket& from) {
 }
 
 bool avimPacket::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000001d) != 0x0000001d) return false;
+  if ((_has_bits_[0] & 0x0000000d) != 0x0000000d) return false;
 
   if (has_src()) {
     if (!this->src().IsInitialized()) return false;
@@ -1199,6 +1127,9 @@ bool avimPacket::IsInitialized() const {
   if (has_avmessage_reply()) {
     if (!this->avmessage_reply().IsInitialized()) return false;
   }
+  if (has_avctl()) {
+    if (!this->avctl().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1208,7 +1139,6 @@ void avimPacket::Swap(avimPacket* other) {
     dest_.Swap(&other->dest_);
     std::swap(all_ofline_, other->all_ofline_);
     std::swap(application_, other->application_);
-    std::swap(type_, other->type_);
     std::swap(avmessage_, other->avmessage_);
     std::swap(avmessage_reply_, other->avmessage_reply_);
     std::swap(avctl_, other->avctl_);
@@ -1253,6 +1183,7 @@ const avClientControl_controltype avClientControl::controltype_MAX;
 const int avClientControl::controltype_ARRAYSIZE;
 #endif  // _MSC_VER
 #ifndef _MSC_VER
+const int avClientControl::kTypeFieldNumber;
 const int avClientControl::kDigestFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1272,6 +1203,7 @@ avClientControl::avClientControl(const avClientControl& from)
 
 void avClientControl::SharedCtor() {
   _cached_size_ = 0;
+  type_ = 0;
   digest_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1311,6 +1243,7 @@ avClientControl* avClientControl::New() const {
 
 void avClientControl::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    type_ = 0;
     if (has_digest()) {
       if (digest_ != &::google::protobuf::internal::kEmptyString) {
         digest_->clear();
@@ -1327,10 +1260,31 @@ bool avClientControl::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required .avim.proto.base.avClientControl.controltype type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::avim::proto::base::avClientControl_controltype_IsValid(value)) {
+            set_type(static_cast< ::avim::proto::base::avClientControl_controltype >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
+          }
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(402)) goto parse_digest;
+        break;
+      }
+
       // optional string digest = 50;
       case 50: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_digest:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_digest()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1361,6 +1315,12 @@ bool avClientControl::MergePartialFromCodedStream(
 
 void avClientControl::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
+  // required .avim.proto.base.avClientControl.controltype type = 1;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->type(), output);
+  }
+
   // optional string digest = 50;
   if (has_digest()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1378,6 +1338,12 @@ void avClientControl::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* avClientControl::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
+  // required .avim.proto.base.avClientControl.controltype type = 1;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->type(), target);
+  }
+
   // optional string digest = 50;
   if (has_digest()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1399,6 +1365,12 @@ int avClientControl::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required .avim.proto.base.avClientControl.controltype type = 1;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+    }
+
     // optional string digest = 50;
     if (has_digest()) {
       total_size += 2 +
@@ -1433,6 +1405,9 @@ void avClientControl::MergeFrom(const ::google::protobuf::Message& from) {
 void avClientControl::MergeFrom(const avClientControl& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_type()) {
+      set_type(from.type());
+    }
     if (from.has_digest()) {
       set_digest(from.digest());
     }
@@ -1453,12 +1428,14 @@ void avClientControl::CopyFrom(const avClientControl& from) {
 }
 
 bool avClientControl::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
 
 void avClientControl::Swap(avClientControl* other) {
   if (other != this) {
+    std::swap(type_, other->type_);
     std::swap(digest_, other->digest_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

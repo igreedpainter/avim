@@ -27,12 +27,95 @@
 #include <boost/type_traits.hpp>
 #include <boost/utility/enable_if.hpp>
 
+#include "avproxy.hpp"
+
 #include <protocol/avim-base.pb.h>
+
+#include "boost/coro/yield.hpp"
 
 namespace avim {
 namespace base{
 
 typedef avim::proto::base::avID avid;
+
+namespace detail{
+
+template<class AsioStream, class Handler>
+struct  client_login_op : boost::coro::coroutine {
+	boost::asio::streambuf	&m_sendbuf;
+	boost::asio::streambuf	&m_recvbuf;
+	AsioStream & m_stream;
+	Handler handler;
+
+	client_login_op(AsioStream & _s, boost::asio::streambuf &_sendbuf,
+			boost::asio::streambuf	&_recvbuf,
+			avid & m_self_src, const std::string & passwd,
+			Handler _handler, bool auto_regeister = false)
+			  : m_stream(_s), m_sendbuf(_sendbuf), m_recvbuf(_recvbuf), handler(_handler)
+	{
+		avim::proto::base::avimPacket pkt;
+		avid *  src =  m_self_src.New();
+		src->CopyFrom(m_self_src);
+		pkt.set_allocated_src(src);
+		avim::proto::base::avClientControl * avctl = new avim::proto::base::avClientControl;
+		// FIXME
+		avctl->set_type(avim::proto::base::avClientControl_controltype_LOGIN);
+		avctl->set_digest("TEST DIGEST");
+		pkt.set_allocated_avctl(avctl);
+
+		// 好，序列化到 streambuf 里.
+
+		std::ostream obuf(&m_sendbuf);
+		int32_t l = htonl(pkt.ByteSize());
+		obuf.write(reinterpret_cast<char*>(&l), 4);
+		pkt.SerializeToOstream(&obuf);
+
+		// 进入 operator 协程过程.
+		using namespace boost::asio::ip;
+		avproxy::async_connect(m_stream, tcp::resolver::query(m_self_src.domain(), "8090"), *this);
+	}
+
+	void operator()(boost::system::error_code ec, std::size_t bytes_transfered = 0)
+	{
+		int l;
+		if (ec){
+			m_stream.get_io_service().post(
+				boost::asio::detail::bind_handler(handler, ec));
+		}
+		CORO_REENTER(this)
+		{
+			// 发送登录包.
+			_yield boost::asio::async_write(m_stream, m_sendbuf, *this);
+			// 读取
+			_yield boost::asio::async_read(m_stream, m_recvbuf.prepare(4), *this);
+			m_recvbuf.commit(bytes_transfered);
+			// 获取大小
+			m_recvbuf.sgetn(reinterpret_cast<char*>(&l), 4);
+			_yield boost::asio::async_read(m_stream, m_recvbuf.prepare(l), *this);
+			m_recvbuf.commit(bytes_transfered);
+			// 反序列化
+			process();
+		}
+	}
+
+	void process()
+	{
+		std::istream is ( &m_recvbuf );
+		avim::proto::base::avimPacket pkt;
+		pkt.ParseFromIstream ( is );
+		if ( pkt.has_avctl() )
+		{
+			if (pkt.avctl().type() == 0)
+			{
+				handler(boost::system::errc::make_error_code(0));
+				return ;
+			}
+			handler(boost::system::errc::make_error_code(0));
+		}
+	}
+};
+
+}
 
 // -------------------------------------------------------
 //
@@ -41,8 +124,13 @@ typedef avim::proto::base::avID avid;
 //	2 - 消息的可靠转发
 //
 // avim-im 协议将利用可靠的基础协议实现即使聊天功能.
-class client
+class client : boost::noncopyable
 {
+	avim::proto::base::avID m_self_src;
+	boost::asio::ip::tcp::socket m_socket;
+	boost::asio::streambuf	m_sendbuf;
+	boost::asio::streambuf	m_recvbuf;
+
 public:
 	client(boost::asio::io_service & io_service, const std::string & avimserver = std::string("avim.avplayer.org:8090"), const std::string & application = "avim");
 
@@ -65,7 +153,11 @@ public:
  	void async_login(const std::string & username, const std::string & passwd,
  				Handler handler, bool auto_regeister = false)
 	{
-		// TODO
+		m_self_src.set_username(username);
+		m_self_src.set_resource("test");
+		m_self_src.set_useragent("avim-simple-client");
+		m_self_src.set_domain("test");
+		detail::client_login_op<boost::asio::ip::tcp::socket, Handler>(m_socket, m_sendbuf, m_recvbuf, m_self_src, passwd, handler, auto_regeister);
 	}
 
 	// --------------------

@@ -43,26 +43,6 @@ class avPacketMessage;
 class avPacketMessageReplay;
 class avPacketMessageReplay_MultiStatus;
 
-enum avimPacket_messagetype {
-  avimPacket_messagetype_MESSAGING = 0,
-  avimPacket_messagetype_MESSAGING_REPLAY = 1,
-  avimPacket_messagetype_CLIENTCONTROL = 2
-};
-bool avimPacket_messagetype_IsValid(int value);
-const avimPacket_messagetype avimPacket_messagetype_messagetype_MIN = avimPacket_messagetype_MESSAGING;
-const avimPacket_messagetype avimPacket_messagetype_messagetype_MAX = avimPacket_messagetype_CLIENTCONTROL;
-const int avimPacket_messagetype_messagetype_ARRAYSIZE = avimPacket_messagetype_messagetype_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* avimPacket_messagetype_descriptor();
-inline const ::std::string& avimPacket_messagetype_Name(avimPacket_messagetype value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    avimPacket_messagetype_descriptor(), value);
-}
-inline bool avimPacket_messagetype_Parse(
-    const ::std::string& name, avimPacket_messagetype* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<avimPacket_messagetype>(
-    avimPacket_messagetype_descriptor(), name, value);
-}
 enum avClientControl_controltype {
   avClientControl_controltype_LOGIN = 0,
   avClientControl_controltype_AUTH_REQUIRED = 1,
@@ -291,31 +271,6 @@ class avimPacket : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  typedef avimPacket_messagetype messagetype;
-  static const messagetype MESSAGING = avimPacket_messagetype_MESSAGING;
-  static const messagetype MESSAGING_REPLAY = avimPacket_messagetype_MESSAGING_REPLAY;
-  static const messagetype CLIENTCONTROL = avimPacket_messagetype_CLIENTCONTROL;
-  static inline bool messagetype_IsValid(int value) {
-    return avimPacket_messagetype_IsValid(value);
-  }
-  static const messagetype messagetype_MIN =
-    avimPacket_messagetype_messagetype_MIN;
-  static const messagetype messagetype_MAX =
-    avimPacket_messagetype_messagetype_MAX;
-  static const int messagetype_ARRAYSIZE =
-    avimPacket_messagetype_messagetype_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  messagetype_descriptor() {
-    return avimPacket_messagetype_descriptor();
-  }
-  static inline const ::std::string& messagetype_Name(messagetype value) {
-    return avimPacket_messagetype_Name(value);
-  }
-  static inline bool messagetype_Parse(const ::std::string& name,
-      messagetype* value) {
-    return avimPacket_messagetype_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
   // required .avim.proto.base.avID src = 1;
@@ -358,26 +313,19 @@ class avimPacket : public ::google::protobuf::Message {
   inline ::std::string* release_application();
   inline void set_allocated_application(::std::string* application);
 
-  // required .avim.proto.base.avimPacket.messagetype type = 5;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 5;
-  inline ::avim::proto::base::avimPacket_messagetype type() const;
-  inline void set_type(::avim::proto::base::avimPacket_messagetype value);
-
-  // optional .avim.proto.base.avPacketMessage avmessage = 6;
+  // optional .avim.proto.base.avPacketMessage avmessage = 5;
   inline bool has_avmessage() const;
   inline void clear_avmessage();
-  static const int kAvmessageFieldNumber = 6;
+  static const int kAvmessageFieldNumber = 5;
   inline const ::avim::proto::base::avPacketMessage& avmessage() const;
   inline ::avim::proto::base::avPacketMessage* mutable_avmessage();
   inline ::avim::proto::base::avPacketMessage* release_avmessage();
   inline void set_allocated_avmessage(::avim::proto::base::avPacketMessage* avmessage);
 
-  // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 7;
+  // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
   inline bool has_avmessage_reply() const;
   inline void clear_avmessage_reply();
-  static const int kAvmessageReplyFieldNumber = 7;
+  static const int kAvmessageReplyFieldNumber = 6;
   inline const ::avim::proto::base::avPacketMessageReplay& avmessage_reply() const;
   inline ::avim::proto::base::avPacketMessageReplay* mutable_avmessage_reply();
   inline ::avim::proto::base::avPacketMessageReplay* release_avmessage_reply();
@@ -400,8 +348,6 @@ class avimPacket : public ::google::protobuf::Message {
   inline void clear_has_all_ofline();
   inline void set_has_application();
   inline void clear_has_application();
-  inline void set_has_type();
-  inline void clear_has_type();
   inline void set_has_avmessage();
   inline void clear_has_avmessage();
   inline void set_has_avmessage_reply();
@@ -415,14 +361,13 @@ class avimPacket : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::avim::proto::base::avID > dest_;
   ::std::string* application_;
   static ::std::string* _default_application_;
-  bool all_ofline_;
-  int type_;
   ::avim::proto::base::avPacketMessage* avmessage_;
   ::avim::proto::base::avPacketMessageReplay* avmessage_reply_;
   ::avim::proto::base::avClientControl* avctl_;
+  bool all_ofline_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_avim_2dbase_2eproto();
   friend void protobuf_AssignDesc_avim_2dbase_2eproto();
@@ -512,6 +457,13 @@ class avClientControl : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
+  // required .avim.proto.base.avClientControl.controltype type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::avim::proto::base::avClientControl_controltype type() const;
+  inline void set_type(::avim::proto::base::avClientControl_controltype value);
+
   // optional string digest = 50;
   inline bool has_digest() const;
   inline void clear_digest();
@@ -526,15 +478,18 @@ class avClientControl : public ::google::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:avim.proto.base.avClientControl)
  private:
+  inline void set_has_type();
+  inline void clear_has_type();
   inline void set_has_digest();
   inline void clear_has_digest();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* digest_;
+  int type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_avim_2dbase_2eproto();
   friend void protobuf_AssignDesc_avim_2dbase_2eproto();
@@ -1303,38 +1258,15 @@ inline void avimPacket::set_allocated_application(::std::string* application) {
   }
 }
 
-// required .avim.proto.base.avimPacket.messagetype type = 5;
-inline bool avimPacket::has_type() const {
+// optional .avim.proto.base.avPacketMessage avmessage = 5;
+inline bool avimPacket::has_avmessage() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void avimPacket::set_has_type() {
+inline void avimPacket::set_has_avmessage() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void avimPacket::clear_has_type() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void avimPacket::clear_type() {
-  type_ = 0;
-  clear_has_type();
-}
-inline ::avim::proto::base::avimPacket_messagetype avimPacket::type() const {
-  return static_cast< ::avim::proto::base::avimPacket_messagetype >(type_);
-}
-inline void avimPacket::set_type(::avim::proto::base::avimPacket_messagetype value) {
-  assert(::avim::proto::base::avimPacket_messagetype_IsValid(value));
-  set_has_type();
-  type_ = value;
-}
-
-// optional .avim.proto.base.avPacketMessage avmessage = 6;
-inline bool avimPacket::has_avmessage() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void avimPacket::set_has_avmessage() {
-  _has_bits_[0] |= 0x00000020u;
-}
 inline void avimPacket::clear_has_avmessage() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void avimPacket::clear_avmessage() {
   if (avmessage_ != NULL) avmessage_->::avim::proto::base::avPacketMessage::Clear();
@@ -1364,15 +1296,15 @@ inline void avimPacket::set_allocated_avmessage(::avim::proto::base::avPacketMes
   }
 }
 
-// optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 7;
+// optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
 inline bool avimPacket::has_avmessage_reply() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void avimPacket::set_has_avmessage_reply() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void avimPacket::clear_has_avmessage_reply() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void avimPacket::clear_avmessage_reply() {
   if (avmessage_reply_ != NULL) avmessage_reply_->::avim::proto::base::avPacketMessageReplay::Clear();
@@ -1404,13 +1336,13 @@ inline void avimPacket::set_allocated_avmessage_reply(::avim::proto::base::avPac
 
 // optional .avim.proto.base.avClientControl avctl = 256;
 inline bool avimPacket::has_avctl() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void avimPacket::set_has_avctl() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void avimPacket::clear_has_avctl() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void avimPacket::clear_avctl() {
   if (avctl_ != NULL) avctl_->::avim::proto::base::avClientControl::Clear();
@@ -1444,15 +1376,38 @@ inline void avimPacket::set_allocated_avctl(::avim::proto::base::avClientControl
 
 // avClientControl
 
-// optional string digest = 50;
-inline bool avClientControl::has_digest() const {
+// required .avim.proto.base.avClientControl.controltype type = 1;
+inline bool avClientControl::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void avClientControl::set_has_digest() {
+inline void avClientControl::set_has_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void avClientControl::clear_has_digest() {
+inline void avClientControl::clear_has_type() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void avClientControl::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::avim::proto::base::avClientControl_controltype avClientControl::type() const {
+  return static_cast< ::avim::proto::base::avClientControl_controltype >(type_);
+}
+inline void avClientControl::set_type(::avim::proto::base::avClientControl_controltype value) {
+  assert(::avim::proto::base::avClientControl_controltype_IsValid(value));
+  set_has_type();
+  type_ = value;
+}
+
+// optional string digest = 50;
+inline bool avClientControl::has_digest() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void avClientControl::set_has_digest() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void avClientControl::clear_has_digest() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void avClientControl::clear_digest() {
   if (digest_ != &::google::protobuf::internal::kEmptyString) {
@@ -1751,10 +1706,6 @@ inline void avPacketMessageReplay::set_allocated_multistatus(::avim::proto::base
 namespace google {
 namespace protobuf {
 
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::avim::proto::base::avimPacket_messagetype>() {
-  return ::avim::proto::base::avimPacket_messagetype_descriptor();
-}
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::avim::proto::base::avClientControl_controltype>() {
   return ::avim::proto::base::avClientControl_controltype_descriptor();

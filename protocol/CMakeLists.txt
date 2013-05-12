@@ -12,4 +12,4 @@ add_library(avimproto-base STATIC ${PROTO_BASE})
 target_link_libraries(avimproto-base ${PROTOBUF_LIBRARIES})
 
 add_library(avimproto-im STATIC ${PROTO_IM})
-target_link_libraries(avimproto-base ${PROTOBUF_LIBRARIES})
+target_link_libraries(avimproto-im ${PROTOBUF_LIBRARIES})

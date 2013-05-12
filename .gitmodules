@@ -1,0 +1,3 @@
+[submodule "avproxy"]
+	path = avproxy
+	url = git://github.com/avplayer/avproxy.git

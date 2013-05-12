@@ -16,27 +16,15 @@ message avimPacket{
 	repeated avID dest = 2; // 目的地地址
 	required bool all_ofline = 4 [ default = false ]; // 控制是否允许服务器进行离线存储
 	required string application = 3 [ default = "avim" ] ; // 表明上层软件是何种协议。
-	enum messagetype {
-	    option allow_alias = true;
-	    MESSAGING =  0 ; // 消息， 服务器执行转发即可
-	    MESSAGING_REPLAY = 1; // 应答，以便确认是否传递成功
-	    CLIENTCONTROL =	 2; // 客户控制消息，see @avClientControl
-	}
-	required messagetype type = 5; // 消息类型
 
 	// 下面是依据类型确定的消息
 
-	optional avPacketMessage avmessage = 6; // messagetype = 0 的时候就是这个消息
-	optional avPacketMessageReplay avmessage_reply = 7; // messagetype = 1 的时候就是这个消息
+	optional avPacketMessage avmessage = 5; // messagetype = 0 的时候就是这个消息
+	optional avPacketMessageReplay avmessage_reply = 6; // messagetype = 1 的时候就是这个消息
 
 	optional avClientControl avctl = 256 ; //  客户控制消息 see @avClientControl
 
-	
-
 }
-
-
-
 
 // 由和消息无关的控制消息，由服务器和服务之间传递，或则客户端和服务器之间的传递
 // 客户端和客户端之间肯定是不使用这个消息块的
@@ -48,8 +36,10 @@ message avClientControl{
 		AUTH_REQUIRED = 1 ; // 如果服务器要求认证，就会返回这个， 要求认证， digest 包含 salt
 		DIGEST_AUTH = 2 ; // 那么，就执行认证吧，发送这个消息进行认证, digest 包含的是 salt 后的密码
 	}
-
+	required controltype type = 1;
 	optional string digest = 50; // 客户端认证的时候发送的数据
+	optional int errorcode = 51; // 认证失败的错误代号.
+	optional string message = 255; // 详细的错误信息.
 }
 
 message avPacketMessage{
