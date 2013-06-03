@@ -100,17 +100,19 @@ struct  client_login_op : boost::coro::coroutine {
 
 	void process()
 	{
+		boost::system::error_code ec;
 		std::istream is ( &m_recvbuf );
 		avim::proto::base::avimPacket pkt;
-		pkt.ParseFromIstream ( is );
+		pkt.ParseFromIstream ( &is );
 		if ( pkt.has_avctl() )
 		{
 			if (pkt.avctl().type() == 0)
 			{
-				handler(boost::system::errc::make_error_code(0));
+
+				handler(ec);
 				return ;
 			}
-			handler(boost::system::errc::make_error_code(0));
+			handler(ec);
 		}
 	}
 };

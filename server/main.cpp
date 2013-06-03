@@ -21,7 +21,10 @@ namespace avserver {
 	{
 	public:
 		template<class Handler>
-		async_client_auth(socketptr socket, Handler handler){}
+		async_client_auth(socketptr socket, Handler handler)
+		{
+			
+		}
 
 		void operator()()
 		{
@@ -31,6 +34,7 @@ namespace avserver {
 	};
 }
 
+// 每个客户一个 avim_server ,  所以使用 enable_shared_from_this 自动管理生命周期.
 class avim_server : public boost::enable_shared_from_this<avim_server>
 {
 	using boost::enable_shared_from_this<avim_server>::enable_shared_from_this;
