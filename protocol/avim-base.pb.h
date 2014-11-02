@@ -23,7 +23,6 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
@@ -36,65 +35,19 @@ void  protobuf_AddDesc_avim_2dbase_2eproto();
 void protobuf_AssignDesc_avim_2dbase_2eproto();
 void protobuf_ShutdownFile_avim_2dbase_2eproto();
 
-class avID;
-class avimPacket;
-class avClientControl;
-class avPacketMessage;
-class avPacketMessageReplay;
-class avPacketMessageReplay_MultiStatus;
+class avAddress;
+class avPacket;
 
-enum avClientControl_controltype {
-  avClientControl_controltype_LOGIN = 0,
-  avClientControl_controltype_AUTH_REQUIRED = 1,
-  avClientControl_controltype_DIGEST_AUTH = 2
-};
-bool avClientControl_controltype_IsValid(int value);
-const avClientControl_controltype avClientControl_controltype_controltype_MIN = avClientControl_controltype_LOGIN;
-const avClientControl_controltype avClientControl_controltype_controltype_MAX = avClientControl_controltype_DIGEST_AUTH;
-const int avClientControl_controltype_controltype_ARRAYSIZE = avClientControl_controltype_controltype_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* avClientControl_controltype_descriptor();
-inline const ::std::string& avClientControl_controltype_Name(avClientControl_controltype value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    avClientControl_controltype_descriptor(), value);
-}
-inline bool avClientControl_controltype_Parse(
-    const ::std::string& name, avClientControl_controltype* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<avClientControl_controltype>(
-    avClientControl_controltype_descriptor(), name, value);
-}
-enum avPacketMessageReplay_Status {
-  avPacketMessageReplay_Status_DELIVERED = 0,
-  avPacketMessageReplay_Status_SUCCESS = 0,
-  avPacketMessageReplay_Status_FAILED = 1,
-  avPacketMessageReplay_Status_SUCCESS_OFFLINED = 2,
-  avPacketMessageReplay_Status_MULTIADDREDD_STATUS_ATTACHED = 3
-};
-bool avPacketMessageReplay_Status_IsValid(int value);
-const avPacketMessageReplay_Status avPacketMessageReplay_Status_Status_MIN = avPacketMessageReplay_Status_DELIVERED;
-const avPacketMessageReplay_Status avPacketMessageReplay_Status_Status_MAX = avPacketMessageReplay_Status_MULTIADDREDD_STATUS_ATTACHED;
-const int avPacketMessageReplay_Status_Status_ARRAYSIZE = avPacketMessageReplay_Status_Status_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* avPacketMessageReplay_Status_descriptor();
-inline const ::std::string& avPacketMessageReplay_Status_Name(avPacketMessageReplay_Status value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    avPacketMessageReplay_Status_descriptor(), value);
-}
-inline bool avPacketMessageReplay_Status_Parse(
-    const ::std::string& name, avPacketMessageReplay_Status* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<avPacketMessageReplay_Status>(
-    avPacketMessageReplay_Status_descriptor(), name, value);
-}
 // ===================================================================
 
-class avID : public ::google::protobuf::Message {
+class avAddress : public ::google::protobuf::Message {
  public:
-  avID();
-  virtual ~avID();
+  avAddress();
+  virtual ~avAddress();
 
-  avID(const avID& from);
+  avAddress(const avAddress& from);
 
-  inline avID& operator=(const avID& from) {
+  inline avAddress& operator=(const avAddress& from) {
     CopyFrom(from);
     return *this;
   }
@@ -108,17 +61,17 @@ class avID : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const avID& default_instance();
+  static const avAddress& default_instance();
 
-  void Swap(avID* other);
+  void Swap(avAddress* other);
 
   // implements Message ----------------------------------------------
 
-  avID* New() const;
+  avAddress* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const avID& from);
-  void MergeFrom(const avID& from);
+  void CopyFrom(const avAddress& from);
+  void MergeFrom(const avAddress& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -177,19 +130,7 @@ class avID : public ::google::protobuf::Message {
   inline ::std::string* release_resource();
   inline void set_allocated_resource(::std::string* resource);
 
-  // optional string useragent = 4;
-  inline bool has_useragent() const;
-  inline void clear_useragent();
-  static const int kUseragentFieldNumber = 4;
-  inline const ::std::string& useragent() const;
-  inline void set_useragent(const ::std::string& value);
-  inline void set_useragent(const char* value);
-  inline void set_useragent(const char* value, size_t size);
-  inline ::std::string* mutable_useragent();
-  inline ::std::string* release_useragent();
-  inline void set_allocated_useragent(::std::string* useragent);
-
-  // @@protoc_insertion_point(class_scope:avim.proto.base.avID)
+  // @@protoc_insertion_point(class_scope:avim.proto.base.avAddress)
  private:
   inline void set_has_username();
   inline void clear_has_username();
@@ -197,36 +138,33 @@ class avID : public ::google::protobuf::Message {
   inline void clear_has_domain();
   inline void set_has_resource();
   inline void clear_has_resource();
-  inline void set_has_useragent();
-  inline void clear_has_useragent();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* username_;
   ::std::string* domain_;
   ::std::string* resource_;
-  ::std::string* useragent_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_avim_2dbase_2eproto();
   friend void protobuf_AssignDesc_avim_2dbase_2eproto();
   friend void protobuf_ShutdownFile_avim_2dbase_2eproto();
 
   void InitAsDefaultInstance();
-  static avID* default_instance_;
+  static avAddress* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class avimPacket : public ::google::protobuf::Message {
+class avPacket : public ::google::protobuf::Message {
  public:
-  avimPacket();
-  virtual ~avimPacket();
+  avPacket();
+  virtual ~avPacket();
 
-  avimPacket(const avimPacket& from);
+  avPacket(const avPacket& from);
 
-  inline avimPacket& operator=(const avimPacket& from) {
+  inline avPacket& operator=(const avPacket& from) {
     CopyFrom(from);
     return *this;
   }
@@ -240,17 +178,17 @@ class avimPacket : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const avimPacket& default_instance();
+  static const avPacket& default_instance();
 
-  void Swap(avimPacket* other);
+  void Swap(avPacket* other);
 
   // implements Message ----------------------------------------------
 
-  avimPacket* New() const;
+  avPacket* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const avimPacket& from);
-  void MergeFrom(const avimPacket& from);
+  void CopyFrom(const avPacket& from);
+  void MergeFrom(const avPacket& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -273,600 +211,182 @@ class avimPacket : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .avim.proto.base.avID src = 1;
-  inline bool has_src() const;
-  inline void clear_src();
-  static const int kSrcFieldNumber = 1;
-  inline const ::avim::proto::base::avID& src() const;
-  inline ::avim::proto::base::avID* mutable_src();
-  inline ::avim::proto::base::avID* release_src();
-  inline void set_allocated_src(::avim::proto::base::avID* src);
-
-  // repeated .avim.proto.base.avID dest = 2;
-  inline int dest_size() const;
-  inline void clear_dest();
-  static const int kDestFieldNumber = 2;
-  inline const ::avim::proto::base::avID& dest(int index) const;
-  inline ::avim::proto::base::avID* mutable_dest(int index);
-  inline ::avim::proto::base::avID* add_dest();
-  inline const ::google::protobuf::RepeatedPtrField< ::avim::proto::base::avID >&
-      dest() const;
-  inline ::google::protobuf::RepeatedPtrField< ::avim::proto::base::avID >*
-      mutable_dest();
-
-  // required bool all_ofline = 4 [default = false];
-  inline bool has_all_ofline() const;
-  inline void clear_all_ofline();
-  static const int kAllOflineFieldNumber = 4;
-  inline bool all_ofline() const;
-  inline void set_all_ofline(bool value);
-
-  // required string application = 3 [default = "avim"];
-  inline bool has_application() const;
-  inline void clear_application();
-  static const int kApplicationFieldNumber = 3;
-  inline const ::std::string& application() const;
-  inline void set_application(const ::std::string& value);
-  inline void set_application(const char* value);
-  inline void set_application(const char* value, size_t size);
-  inline ::std::string* mutable_application();
-  inline ::std::string* release_application();
-  inline void set_allocated_application(::std::string* application);
-
-  // optional .avim.proto.base.avPacketMessage avmessage = 5;
-  inline bool has_avmessage() const;
-  inline void clear_avmessage();
-  static const int kAvmessageFieldNumber = 5;
-  inline const ::avim::proto::base::avPacketMessage& avmessage() const;
-  inline ::avim::proto::base::avPacketMessage* mutable_avmessage();
-  inline ::avim::proto::base::avPacketMessage* release_avmessage();
-  inline void set_allocated_avmessage(::avim::proto::base::avPacketMessage* avmessage);
-
-  // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
-  inline bool has_avmessage_reply() const;
-  inline void clear_avmessage_reply();
-  static const int kAvmessageReplyFieldNumber = 6;
-  inline const ::avim::proto::base::avPacketMessageReplay& avmessage_reply() const;
-  inline ::avim::proto::base::avPacketMessageReplay* mutable_avmessage_reply();
-  inline ::avim::proto::base::avPacketMessageReplay* release_avmessage_reply();
-  inline void set_allocated_avmessage_reply(::avim::proto::base::avPacketMessageReplay* avmessage_reply);
-
-  // optional .avim.proto.base.avClientControl avctl = 256;
-  inline bool has_avctl() const;
-  inline void clear_avctl();
-  static const int kAvctlFieldNumber = 256;
-  inline const ::avim::proto::base::avClientControl& avctl() const;
-  inline ::avim::proto::base::avClientControl* mutable_avctl();
-  inline ::avim::proto::base::avClientControl* release_avctl();
-  inline void set_allocated_avctl(::avim::proto::base::avClientControl* avctl);
-
-  // @@protoc_insertion_point(class_scope:avim.proto.base.avimPacket)
- private:
-  inline void set_has_src();
-  inline void clear_has_src();
-  inline void set_has_all_ofline();
-  inline void clear_has_all_ofline();
-  inline void set_has_application();
-  inline void clear_has_application();
-  inline void set_has_avmessage();
-  inline void clear_has_avmessage();
-  inline void set_has_avmessage_reply();
-  inline void clear_has_avmessage_reply();
-  inline void set_has_avctl();
-  inline void clear_has_avctl();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::avim::proto::base::avID* src_;
-  ::google::protobuf::RepeatedPtrField< ::avim::proto::base::avID > dest_;
-  ::std::string* application_;
-  static ::std::string* _default_application_;
-  ::avim::proto::base::avPacketMessage* avmessage_;
-  ::avim::proto::base::avPacketMessageReplay* avmessage_reply_;
-  ::avim::proto::base::avClientControl* avctl_;
-  bool all_ofline_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
-
-  friend void  protobuf_AddDesc_avim_2dbase_2eproto();
-  friend void protobuf_AssignDesc_avim_2dbase_2eproto();
-  friend void protobuf_ShutdownFile_avim_2dbase_2eproto();
-
-  void InitAsDefaultInstance();
-  static avimPacket* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class avClientControl : public ::google::protobuf::Message {
- public:
-  avClientControl();
-  virtual ~avClientControl();
-
-  avClientControl(const avClientControl& from);
-
-  inline avClientControl& operator=(const avClientControl& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const avClientControl& default_instance();
-
-  void Swap(avClientControl* other);
-
-  // implements Message ----------------------------------------------
-
-  avClientControl* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const avClientControl& from);
-  void MergeFrom(const avClientControl& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  typedef avClientControl_controltype controltype;
-  static const controltype LOGIN = avClientControl_controltype_LOGIN;
-  static const controltype AUTH_REQUIRED = avClientControl_controltype_AUTH_REQUIRED;
-  static const controltype DIGEST_AUTH = avClientControl_controltype_DIGEST_AUTH;
-  static inline bool controltype_IsValid(int value) {
-    return avClientControl_controltype_IsValid(value);
-  }
-  static const controltype controltype_MIN =
-    avClientControl_controltype_controltype_MIN;
-  static const controltype controltype_MAX =
-    avClientControl_controltype_controltype_MAX;
-  static const int controltype_ARRAYSIZE =
-    avClientControl_controltype_controltype_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  controltype_descriptor() {
-    return avClientControl_controltype_descriptor();
-  }
-  static inline const ::std::string& controltype_Name(controltype value) {
-    return avClientControl_controltype_Name(value);
-  }
-  static inline bool controltype_Parse(const ::std::string& name,
-      controltype* value) {
-    return avClientControl_controltype_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  // required .avim.proto.base.avClientControl.controltype type = 1;
+  // required uint32 type = 1;
   inline bool has_type() const;
   inline void clear_type();
   static const int kTypeFieldNumber = 1;
-  inline ::avim::proto::base::avClientControl_controltype type() const;
-  inline void set_type(::avim::proto::base::avClientControl_controltype value);
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
 
-  // optional string digest = 50;
-  inline bool has_digest() const;
-  inline void clear_digest();
-  static const int kDigestFieldNumber = 50;
-  inline const ::std::string& digest() const;
-  inline void set_digest(const ::std::string& value);
-  inline void set_digest(const char* value);
-  inline void set_digest(const char* value, size_t size);
-  inline ::std::string* mutable_digest();
-  inline ::std::string* release_digest();
-  inline void set_allocated_digest(::std::string* digest);
+  // required .avim.proto.base.avAddress src = 2;
+  inline bool has_src() const;
+  inline void clear_src();
+  static const int kSrcFieldNumber = 2;
+  inline const ::avim::proto::base::avAddress& src() const;
+  inline ::avim::proto::base::avAddress* mutable_src();
+  inline ::avim::proto::base::avAddress* release_src();
+  inline void set_allocated_src(::avim::proto::base::avAddress* src);
 
-  // @@protoc_insertion_point(class_scope:avim.proto.base.avClientControl)
+  // required bytes figurprint = 3;
+  inline bool has_figurprint() const;
+  inline void clear_figurprint();
+  static const int kFigurprintFieldNumber = 3;
+  inline const ::std::string& figurprint() const;
+  inline void set_figurprint(const ::std::string& value);
+  inline void set_figurprint(const char* value);
+  inline void set_figurprint(const void* value, size_t size);
+  inline ::std::string* mutable_figurprint();
+  inline ::std::string* release_figurprint();
+  inline void set_allocated_figurprint(::std::string* figurprint);
+
+  // required .avim.proto.base.avAddress dest = 4;
+  inline bool has_dest() const;
+  inline void clear_dest();
+  static const int kDestFieldNumber = 4;
+  inline const ::avim::proto::base::avAddress& dest() const;
+  inline ::avim::proto::base::avAddress* mutable_dest();
+  inline ::avim::proto::base::avAddress* release_dest();
+  inline void set_allocated_dest(::avim::proto::base::avAddress* dest);
+
+  // required string upperlayerpotocol = 5 [default = "avim"];
+  inline bool has_upperlayerpotocol() const;
+  inline void clear_upperlayerpotocol();
+  static const int kUpperlayerpotocolFieldNumber = 5;
+  inline const ::std::string& upperlayerpotocol() const;
+  inline void set_upperlayerpotocol(const ::std::string& value);
+  inline void set_upperlayerpotocol(const char* value);
+  inline void set_upperlayerpotocol(const char* value, size_t size);
+  inline ::std::string* mutable_upperlayerpotocol();
+  inline ::std::string* release_upperlayerpotocol();
+  inline void set_allocated_upperlayerpotocol(::std::string* upperlayerpotocol);
+
+  // required uint64 payload_length = 6;
+  inline bool has_payload_length() const;
+  inline void clear_payload_length();
+  static const int kPayloadLengthFieldNumber = 6;
+  inline ::google::protobuf::uint64 payload_length() const;
+  inline void set_payload_length(::google::protobuf::uint64 value);
+
+  // optional bytes payload = 7;
+  inline bool has_payload() const;
+  inline void clear_payload();
+  static const int kPayloadFieldNumber = 7;
+  inline const ::std::string& payload() const;
+  inline void set_payload(const ::std::string& value);
+  inline void set_payload(const char* value);
+  inline void set_payload(const void* value, size_t size);
+  inline ::std::string* mutable_payload();
+  inline ::std::string* release_payload();
+  inline void set_allocated_payload(::std::string* payload);
+
+  // required bytes message_sign = 8;
+  inline bool has_message_sign() const;
+  inline void clear_message_sign();
+  static const int kMessageSignFieldNumber = 8;
+  inline const ::std::string& message_sign() const;
+  inline void set_message_sign(const ::std::string& value);
+  inline void set_message_sign(const char* value);
+  inline void set_message_sign(const void* value, size_t size);
+  inline ::std::string* mutable_message_sign();
+  inline ::std::string* release_message_sign();
+  inline void set_allocated_message_sign(::std::string* message_sign);
+
+  // @@protoc_insertion_point(class_scope:avim.proto.base.avPacket)
  private:
   inline void set_has_type();
   inline void clear_has_type();
-  inline void set_has_digest();
-  inline void clear_has_digest();
+  inline void set_has_src();
+  inline void clear_has_src();
+  inline void set_has_figurprint();
+  inline void clear_has_figurprint();
+  inline void set_has_dest();
+  inline void clear_has_dest();
+  inline void set_has_upperlayerpotocol();
+  inline void clear_has_upperlayerpotocol();
+  inline void set_has_payload_length();
+  inline void clear_has_payload_length();
+  inline void set_has_payload();
+  inline void clear_has_payload();
+  inline void set_has_message_sign();
+  inline void clear_has_message_sign();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* digest_;
-  int type_;
+  ::avim::proto::base::avAddress* src_;
+  ::std::string* figurprint_;
+  ::avim::proto::base::avAddress* dest_;
+  ::std::string* upperlayerpotocol_;
+  static ::std::string* _default_upperlayerpotocol_;
+  ::google::protobuf::uint64 payload_length_;
+  ::std::string* payload_;
+  ::std::string* message_sign_;
+  ::google::protobuf::uint32 type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_avim_2dbase_2eproto();
   friend void protobuf_AssignDesc_avim_2dbase_2eproto();
   friend void protobuf_ShutdownFile_avim_2dbase_2eproto();
 
   void InitAsDefaultInstance();
-  static avClientControl* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class avPacketMessage : public ::google::protobuf::Message {
- public:
-  avPacketMessage();
-  virtual ~avPacketMessage();
-
-  avPacketMessage(const avPacketMessage& from);
-
-  inline avPacketMessage& operator=(const avPacketMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const avPacketMessage& default_instance();
-
-  void Swap(avPacketMessage* other);
-
-  // implements Message ----------------------------------------------
-
-  avPacketMessage* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const avPacketMessage& from);
-  void MergeFrom(const avPacketMessage& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required uint64 length = 1;
-  inline bool has_length() const;
-  inline void clear_length();
-  static const int kLengthFieldNumber = 1;
-  inline ::google::protobuf::uint64 length() const;
-  inline void set_length(::google::protobuf::uint64 value);
-
-  // optional bytes msgblock = 2;
-  inline bool has_msgblock() const;
-  inline void clear_msgblock();
-  static const int kMsgblockFieldNumber = 2;
-  inline const ::std::string& msgblock() const;
-  inline void set_msgblock(const ::std::string& value);
-  inline void set_msgblock(const char* value);
-  inline void set_msgblock(const void* value, size_t size);
-  inline ::std::string* mutable_msgblock();
-  inline ::std::string* release_msgblock();
-  inline void set_allocated_msgblock(::std::string* msgblock);
-
-  // @@protoc_insertion_point(class_scope:avim.proto.base.avPacketMessage)
- private:
-  inline void set_has_length();
-  inline void clear_has_length();
-  inline void set_has_msgblock();
-  inline void clear_has_msgblock();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::uint64 length_;
-  ::std::string* msgblock_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_avim_2dbase_2eproto();
-  friend void protobuf_AssignDesc_avim_2dbase_2eproto();
-  friend void protobuf_ShutdownFile_avim_2dbase_2eproto();
-
-  void InitAsDefaultInstance();
-  static avPacketMessage* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class avPacketMessageReplay_MultiStatus : public ::google::protobuf::Message {
- public:
-  avPacketMessageReplay_MultiStatus();
-  virtual ~avPacketMessageReplay_MultiStatus();
-
-  avPacketMessageReplay_MultiStatus(const avPacketMessageReplay_MultiStatus& from);
-
-  inline avPacketMessageReplay_MultiStatus& operator=(const avPacketMessageReplay_MultiStatus& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const avPacketMessageReplay_MultiStatus& default_instance();
-
-  void Swap(avPacketMessageReplay_MultiStatus* other);
-
-  // implements Message ----------------------------------------------
-
-  avPacketMessageReplay_MultiStatus* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const avPacketMessageReplay_MultiStatus& from);
-  void MergeFrom(const avPacketMessageReplay_MultiStatus& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-  inline bool has_status() const;
-  inline void clear_status();
-  static const int kStatusFieldNumber = 1;
-  inline ::avim::proto::base::avPacketMessageReplay_Status status() const;
-  inline void set_status(::avim::proto::base::avPacketMessageReplay_Status value);
-
-  // required .avim.proto.base.avID avid = 2;
-  inline bool has_avid() const;
-  inline void clear_avid();
-  static const int kAvidFieldNumber = 2;
-  inline const ::avim::proto::base::avID& avid() const;
-  inline ::avim::proto::base::avID* mutable_avid();
-  inline ::avim::proto::base::avID* release_avid();
-  inline void set_allocated_avid(::avim::proto::base::avID* avid);
-
-  // @@protoc_insertion_point(class_scope:avim.proto.base.avPacketMessageReplay.MultiStatus)
- private:
-  inline void set_has_status();
-  inline void clear_has_status();
-  inline void set_has_avid();
-  inline void clear_has_avid();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::avim::proto::base::avID* avid_;
-  int status_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_avim_2dbase_2eproto();
-  friend void protobuf_AssignDesc_avim_2dbase_2eproto();
-  friend void protobuf_ShutdownFile_avim_2dbase_2eproto();
-
-  void InitAsDefaultInstance();
-  static avPacketMessageReplay_MultiStatus* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class avPacketMessageReplay : public ::google::protobuf::Message {
- public:
-  avPacketMessageReplay();
-  virtual ~avPacketMessageReplay();
-
-  avPacketMessageReplay(const avPacketMessageReplay& from);
-
-  inline avPacketMessageReplay& operator=(const avPacketMessageReplay& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const avPacketMessageReplay& default_instance();
-
-  void Swap(avPacketMessageReplay* other);
-
-  // implements Message ----------------------------------------------
-
-  avPacketMessageReplay* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const avPacketMessageReplay& from);
-  void MergeFrom(const avPacketMessageReplay& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  typedef avPacketMessageReplay_MultiStatus MultiStatus;
-
-  typedef avPacketMessageReplay_Status Status;
-  static const Status DELIVERED = avPacketMessageReplay_Status_DELIVERED;
-  static const Status SUCCESS = avPacketMessageReplay_Status_SUCCESS;
-  static const Status FAILED = avPacketMessageReplay_Status_FAILED;
-  static const Status SUCCESS_OFFLINED = avPacketMessageReplay_Status_SUCCESS_OFFLINED;
-  static const Status MULTIADDREDD_STATUS_ATTACHED = avPacketMessageReplay_Status_MULTIADDREDD_STATUS_ATTACHED;
-  static inline bool Status_IsValid(int value) {
-    return avPacketMessageReplay_Status_IsValid(value);
-  }
-  static const Status Status_MIN =
-    avPacketMessageReplay_Status_Status_MIN;
-  static const Status Status_MAX =
-    avPacketMessageReplay_Status_Status_MAX;
-  static const int Status_ARRAYSIZE =
-    avPacketMessageReplay_Status_Status_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  Status_descriptor() {
-    return avPacketMessageReplay_Status_descriptor();
-  }
-  static inline const ::std::string& Status_Name(Status value) {
-    return avPacketMessageReplay_Status_Name(value);
-  }
-  static inline bool Status_Parse(const ::std::string& name,
-      Status* value) {
-    return avPacketMessageReplay_Status_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  // required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-  inline bool has_status() const;
-  inline void clear_status();
-  static const int kStatusFieldNumber = 1;
-  inline ::avim::proto::base::avPacketMessageReplay_Status status() const;
-  inline void set_status(::avim::proto::base::avPacketMessageReplay_Status value);
-
-  // optional .avim.proto.base.avPacketMessageReplay.MultiStatus multistatus = 2;
-  inline bool has_multistatus() const;
-  inline void clear_multistatus();
-  static const int kMultistatusFieldNumber = 2;
-  inline const ::avim::proto::base::avPacketMessageReplay_MultiStatus& multistatus() const;
-  inline ::avim::proto::base::avPacketMessageReplay_MultiStatus* mutable_multistatus();
-  inline ::avim::proto::base::avPacketMessageReplay_MultiStatus* release_multistatus();
-  inline void set_allocated_multistatus(::avim::proto::base::avPacketMessageReplay_MultiStatus* multistatus);
-
-  // @@protoc_insertion_point(class_scope:avim.proto.base.avPacketMessageReplay)
- private:
-  inline void set_has_status();
-  inline void clear_has_status();
-  inline void set_has_multistatus();
-  inline void clear_has_multistatus();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::avim::proto::base::avPacketMessageReplay_MultiStatus* multistatus_;
-  int status_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_avim_2dbase_2eproto();
-  friend void protobuf_AssignDesc_avim_2dbase_2eproto();
-  friend void protobuf_ShutdownFile_avim_2dbase_2eproto();
-
-  void InitAsDefaultInstance();
-  static avPacketMessageReplay* default_instance_;
+  static avPacket* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// avID
+// avAddress
 
 // required string username = 1;
-inline bool avID::has_username() const {
+inline bool avAddress::has_username() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void avID::set_has_username() {
+inline void avAddress::set_has_username() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void avID::clear_has_username() {
+inline void avAddress::clear_has_username() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void avID::clear_username() {
+inline void avAddress::clear_username() {
   if (username_ != &::google::protobuf::internal::kEmptyString) {
     username_->clear();
   }
   clear_has_username();
 }
-inline const ::std::string& avID::username() const {
+inline const ::std::string& avAddress::username() const {
   return *username_;
 }
-inline void avID::set_username(const ::std::string& value) {
+inline void avAddress::set_username(const ::std::string& value) {
   set_has_username();
   if (username_ == &::google::protobuf::internal::kEmptyString) {
     username_ = new ::std::string;
   }
   username_->assign(value);
 }
-inline void avID::set_username(const char* value) {
+inline void avAddress::set_username(const char* value) {
   set_has_username();
   if (username_ == &::google::protobuf::internal::kEmptyString) {
     username_ = new ::std::string;
   }
   username_->assign(value);
 }
-inline void avID::set_username(const char* value, size_t size) {
+inline void avAddress::set_username(const char* value, size_t size) {
   set_has_username();
   if (username_ == &::google::protobuf::internal::kEmptyString) {
     username_ = new ::std::string;
   }
   username_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* avID::mutable_username() {
+inline ::std::string* avAddress::mutable_username() {
   set_has_username();
   if (username_ == &::google::protobuf::internal::kEmptyString) {
     username_ = new ::std::string;
   }
   return username_;
 }
-inline ::std::string* avID::release_username() {
+inline ::std::string* avAddress::release_username() {
   clear_has_username();
   if (username_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -876,7 +396,7 @@ inline ::std::string* avID::release_username() {
     return temp;
   }
 }
-inline void avID::set_allocated_username(::std::string* username) {
+inline void avAddress::set_allocated_username(::std::string* username) {
   if (username_ != &::google::protobuf::internal::kEmptyString) {
     delete username_;
   }
@@ -890,53 +410,53 @@ inline void avID::set_allocated_username(::std::string* username) {
 }
 
 // required string domain = 2;
-inline bool avID::has_domain() const {
+inline bool avAddress::has_domain() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void avID::set_has_domain() {
+inline void avAddress::set_has_domain() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void avID::clear_has_domain() {
+inline void avAddress::clear_has_domain() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void avID::clear_domain() {
+inline void avAddress::clear_domain() {
   if (domain_ != &::google::protobuf::internal::kEmptyString) {
     domain_->clear();
   }
   clear_has_domain();
 }
-inline const ::std::string& avID::domain() const {
+inline const ::std::string& avAddress::domain() const {
   return *domain_;
 }
-inline void avID::set_domain(const ::std::string& value) {
+inline void avAddress::set_domain(const ::std::string& value) {
   set_has_domain();
   if (domain_ == &::google::protobuf::internal::kEmptyString) {
     domain_ = new ::std::string;
   }
   domain_->assign(value);
 }
-inline void avID::set_domain(const char* value) {
+inline void avAddress::set_domain(const char* value) {
   set_has_domain();
   if (domain_ == &::google::protobuf::internal::kEmptyString) {
     domain_ = new ::std::string;
   }
   domain_->assign(value);
 }
-inline void avID::set_domain(const char* value, size_t size) {
+inline void avAddress::set_domain(const char* value, size_t size) {
   set_has_domain();
   if (domain_ == &::google::protobuf::internal::kEmptyString) {
     domain_ = new ::std::string;
   }
   domain_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* avID::mutable_domain() {
+inline ::std::string* avAddress::mutable_domain() {
   set_has_domain();
   if (domain_ == &::google::protobuf::internal::kEmptyString) {
     domain_ = new ::std::string;
   }
   return domain_;
 }
-inline ::std::string* avID::release_domain() {
+inline ::std::string* avAddress::release_domain() {
   clear_has_domain();
   if (domain_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -946,7 +466,7 @@ inline ::std::string* avID::release_domain() {
     return temp;
   }
 }
-inline void avID::set_allocated_domain(::std::string* domain) {
+inline void avAddress::set_allocated_domain(::std::string* domain) {
   if (domain_ != &::google::protobuf::internal::kEmptyString) {
     delete domain_;
   }
@@ -960,53 +480,53 @@ inline void avID::set_allocated_domain(::std::string* domain) {
 }
 
 // optional string resource = 3;
-inline bool avID::has_resource() const {
+inline bool avAddress::has_resource() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void avID::set_has_resource() {
+inline void avAddress::set_has_resource() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void avID::clear_has_resource() {
+inline void avAddress::clear_has_resource() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void avID::clear_resource() {
+inline void avAddress::clear_resource() {
   if (resource_ != &::google::protobuf::internal::kEmptyString) {
     resource_->clear();
   }
   clear_has_resource();
 }
-inline const ::std::string& avID::resource() const {
+inline const ::std::string& avAddress::resource() const {
   return *resource_;
 }
-inline void avID::set_resource(const ::std::string& value) {
+inline void avAddress::set_resource(const ::std::string& value) {
   set_has_resource();
   if (resource_ == &::google::protobuf::internal::kEmptyString) {
     resource_ = new ::std::string;
   }
   resource_->assign(value);
 }
-inline void avID::set_resource(const char* value) {
+inline void avAddress::set_resource(const char* value) {
   set_has_resource();
   if (resource_ == &::google::protobuf::internal::kEmptyString) {
     resource_ = new ::std::string;
   }
   resource_->assign(value);
 }
-inline void avID::set_resource(const char* value, size_t size) {
+inline void avAddress::set_resource(const char* value, size_t size) {
   set_has_resource();
   if (resource_ == &::google::protobuf::internal::kEmptyString) {
     resource_ = new ::std::string;
   }
   resource_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* avID::mutable_resource() {
+inline ::std::string* avAddress::mutable_resource() {
   set_has_resource();
   if (resource_ == &::google::protobuf::internal::kEmptyString) {
     resource_ = new ::std::string;
   }
   return resource_;
 }
-inline ::std::string* avID::release_resource() {
+inline ::std::string* avAddress::release_resource() {
   clear_has_resource();
   if (resource_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -1016,7 +536,7 @@ inline ::std::string* avID::release_resource() {
     return temp;
   }
 }
-inline void avID::set_allocated_resource(::std::string* resource) {
+inline void avAddress::set_allocated_resource(::std::string* resource) {
   if (resource_ != &::google::protobuf::internal::kEmptyString) {
     delete resource_;
   }
@@ -1029,109 +549,61 @@ inline void avID::set_allocated_resource(::std::string* resource) {
   }
 }
 
-// optional string useragent = 4;
-inline bool avID::has_useragent() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void avID::set_has_useragent() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void avID::clear_has_useragent() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void avID::clear_useragent() {
-  if (useragent_ != &::google::protobuf::internal::kEmptyString) {
-    useragent_->clear();
-  }
-  clear_has_useragent();
-}
-inline const ::std::string& avID::useragent() const {
-  return *useragent_;
-}
-inline void avID::set_useragent(const ::std::string& value) {
-  set_has_useragent();
-  if (useragent_ == &::google::protobuf::internal::kEmptyString) {
-    useragent_ = new ::std::string;
-  }
-  useragent_->assign(value);
-}
-inline void avID::set_useragent(const char* value) {
-  set_has_useragent();
-  if (useragent_ == &::google::protobuf::internal::kEmptyString) {
-    useragent_ = new ::std::string;
-  }
-  useragent_->assign(value);
-}
-inline void avID::set_useragent(const char* value, size_t size) {
-  set_has_useragent();
-  if (useragent_ == &::google::protobuf::internal::kEmptyString) {
-    useragent_ = new ::std::string;
-  }
-  useragent_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* avID::mutable_useragent() {
-  set_has_useragent();
-  if (useragent_ == &::google::protobuf::internal::kEmptyString) {
-    useragent_ = new ::std::string;
-  }
-  return useragent_;
-}
-inline ::std::string* avID::release_useragent() {
-  clear_has_useragent();
-  if (useragent_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = useragent_;
-    useragent_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void avID::set_allocated_useragent(::std::string* useragent) {
-  if (useragent_ != &::google::protobuf::internal::kEmptyString) {
-    delete useragent_;
-  }
-  if (useragent) {
-    set_has_useragent();
-    useragent_ = useragent;
-  } else {
-    clear_has_useragent();
-    useragent_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
 // -------------------------------------------------------------------
 
-// avimPacket
+// avPacket
 
-// required .avim.proto.base.avID src = 1;
-inline bool avimPacket::has_src() const {
+// required uint32 type = 1;
+inline bool avPacket::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void avimPacket::set_has_src() {
+inline void avPacket::set_has_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void avimPacket::clear_has_src() {
+inline void avPacket::clear_has_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void avimPacket::clear_src() {
-  if (src_ != NULL) src_->::avim::proto::base::avID::Clear();
+inline void avPacket::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+inline ::google::protobuf::uint32 avPacket::type() const {
+  return type_;
+}
+inline void avPacket::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// required .avim.proto.base.avAddress src = 2;
+inline bool avPacket::has_src() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void avPacket::set_has_src() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void avPacket::clear_has_src() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void avPacket::clear_src() {
+  if (src_ != NULL) src_->::avim::proto::base::avAddress::Clear();
   clear_has_src();
 }
-inline const ::avim::proto::base::avID& avimPacket::src() const {
+inline const ::avim::proto::base::avAddress& avPacket::src() const {
   return src_ != NULL ? *src_ : *default_instance_->src_;
 }
-inline ::avim::proto::base::avID* avimPacket::mutable_src() {
+inline ::avim::proto::base::avAddress* avPacket::mutable_src() {
   set_has_src();
-  if (src_ == NULL) src_ = new ::avim::proto::base::avID;
+  if (src_ == NULL) src_ = new ::avim::proto::base::avAddress;
   return src_;
 }
-inline ::avim::proto::base::avID* avimPacket::release_src() {
+inline ::avim::proto::base::avAddress* avPacket::release_src() {
   clear_has_src();
-  ::avim::proto::base::avID* temp = src_;
+  ::avim::proto::base::avAddress* temp = src_;
   src_ = NULL;
   return temp;
 }
-inline void avimPacket::set_allocated_src(::avim::proto::base::avID* src) {
+inline void avPacket::set_allocated_src(::avim::proto::base::avAddress* src) {
   delete src_;
   src_ = src;
   if (src) {
@@ -1141,557 +613,343 @@ inline void avimPacket::set_allocated_src(::avim::proto::base::avID* src) {
   }
 }
 
-// repeated .avim.proto.base.avID dest = 2;
-inline int avimPacket::dest_size() const {
-  return dest_.size();
-}
-inline void avimPacket::clear_dest() {
-  dest_.Clear();
-}
-inline const ::avim::proto::base::avID& avimPacket::dest(int index) const {
-  return dest_.Get(index);
-}
-inline ::avim::proto::base::avID* avimPacket::mutable_dest(int index) {
-  return dest_.Mutable(index);
-}
-inline ::avim::proto::base::avID* avimPacket::add_dest() {
-  return dest_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::avim::proto::base::avID >&
-avimPacket::dest() const {
-  return dest_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::avim::proto::base::avID >*
-avimPacket::mutable_dest() {
-  return &dest_;
-}
-
-// required bool all_ofline = 4 [default = false];
-inline bool avimPacket::has_all_ofline() const {
+// required bytes figurprint = 3;
+inline bool avPacket::has_figurprint() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void avimPacket::set_has_all_ofline() {
+inline void avPacket::set_has_figurprint() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void avimPacket::clear_has_all_ofline() {
+inline void avPacket::clear_has_figurprint() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void avimPacket::clear_all_ofline() {
-  all_ofline_ = false;
-  clear_has_all_ofline();
+inline void avPacket::clear_figurprint() {
+  if (figurprint_ != &::google::protobuf::internal::kEmptyString) {
+    figurprint_->clear();
+  }
+  clear_has_figurprint();
 }
-inline bool avimPacket::all_ofline() const {
-  return all_ofline_;
+inline const ::std::string& avPacket::figurprint() const {
+  return *figurprint_;
 }
-inline void avimPacket::set_all_ofline(bool value) {
-  set_has_all_ofline();
-  all_ofline_ = value;
+inline void avPacket::set_figurprint(const ::std::string& value) {
+  set_has_figurprint();
+  if (figurprint_ == &::google::protobuf::internal::kEmptyString) {
+    figurprint_ = new ::std::string;
+  }
+  figurprint_->assign(value);
+}
+inline void avPacket::set_figurprint(const char* value) {
+  set_has_figurprint();
+  if (figurprint_ == &::google::protobuf::internal::kEmptyString) {
+    figurprint_ = new ::std::string;
+  }
+  figurprint_->assign(value);
+}
+inline void avPacket::set_figurprint(const void* value, size_t size) {
+  set_has_figurprint();
+  if (figurprint_ == &::google::protobuf::internal::kEmptyString) {
+    figurprint_ = new ::std::string;
+  }
+  figurprint_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* avPacket::mutable_figurprint() {
+  set_has_figurprint();
+  if (figurprint_ == &::google::protobuf::internal::kEmptyString) {
+    figurprint_ = new ::std::string;
+  }
+  return figurprint_;
+}
+inline ::std::string* avPacket::release_figurprint() {
+  clear_has_figurprint();
+  if (figurprint_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = figurprint_;
+    figurprint_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void avPacket::set_allocated_figurprint(::std::string* figurprint) {
+  if (figurprint_ != &::google::protobuf::internal::kEmptyString) {
+    delete figurprint_;
+  }
+  if (figurprint) {
+    set_has_figurprint();
+    figurprint_ = figurprint;
+  } else {
+    clear_has_figurprint();
+    figurprint_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
-// required string application = 3 [default = "avim"];
-inline bool avimPacket::has_application() const {
+// required .avim.proto.base.avAddress dest = 4;
+inline bool avPacket::has_dest() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void avimPacket::set_has_application() {
+inline void avPacket::set_has_dest() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void avimPacket::clear_has_application() {
+inline void avPacket::clear_has_dest() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void avimPacket::clear_application() {
-  if (application_ != _default_application_) {
-    application_->assign(*_default_application_);
-  }
-  clear_has_application();
+inline void avPacket::clear_dest() {
+  if (dest_ != NULL) dest_->::avim::proto::base::avAddress::Clear();
+  clear_has_dest();
 }
-inline const ::std::string& avimPacket::application() const {
-  return *application_;
+inline const ::avim::proto::base::avAddress& avPacket::dest() const {
+  return dest_ != NULL ? *dest_ : *default_instance_->dest_;
 }
-inline void avimPacket::set_application(const ::std::string& value) {
-  set_has_application();
-  if (application_ == _default_application_) {
-    application_ = new ::std::string;
-  }
-  application_->assign(value);
+inline ::avim::proto::base::avAddress* avPacket::mutable_dest() {
+  set_has_dest();
+  if (dest_ == NULL) dest_ = new ::avim::proto::base::avAddress;
+  return dest_;
 }
-inline void avimPacket::set_application(const char* value) {
-  set_has_application();
-  if (application_ == _default_application_) {
-    application_ = new ::std::string;
-  }
-  application_->assign(value);
+inline ::avim::proto::base::avAddress* avPacket::release_dest() {
+  clear_has_dest();
+  ::avim::proto::base::avAddress* temp = dest_;
+  dest_ = NULL;
+  return temp;
 }
-inline void avimPacket::set_application(const char* value, size_t size) {
-  set_has_application();
-  if (application_ == _default_application_) {
-    application_ = new ::std::string;
-  }
-  application_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* avimPacket::mutable_application() {
-  set_has_application();
-  if (application_ == _default_application_) {
-    application_ = new ::std::string(*_default_application_);
-  }
-  return application_;
-}
-inline ::std::string* avimPacket::release_application() {
-  clear_has_application();
-  if (application_ == _default_application_) {
-    return NULL;
+inline void avPacket::set_allocated_dest(::avim::proto::base::avAddress* dest) {
+  delete dest_;
+  dest_ = dest;
+  if (dest) {
+    set_has_dest();
   } else {
-    ::std::string* temp = application_;
-    application_ = const_cast< ::std::string*>(_default_application_);
-    return temp;
-  }
-}
-inline void avimPacket::set_allocated_application(::std::string* application) {
-  if (application_ != _default_application_) {
-    delete application_;
-  }
-  if (application) {
-    set_has_application();
-    application_ = application;
-  } else {
-    clear_has_application();
-    application_ = const_cast< ::std::string*>(_default_application_);
+    clear_has_dest();
   }
 }
 
-// optional .avim.proto.base.avPacketMessage avmessage = 5;
-inline bool avimPacket::has_avmessage() const {
+// required string upperlayerpotocol = 5 [default = "avim"];
+inline bool avPacket::has_upperlayerpotocol() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void avimPacket::set_has_avmessage() {
+inline void avPacket::set_has_upperlayerpotocol() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void avimPacket::clear_has_avmessage() {
+inline void avPacket::clear_has_upperlayerpotocol() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void avimPacket::clear_avmessage() {
-  if (avmessage_ != NULL) avmessage_->::avim::proto::base::avPacketMessage::Clear();
-  clear_has_avmessage();
+inline void avPacket::clear_upperlayerpotocol() {
+  if (upperlayerpotocol_ != _default_upperlayerpotocol_) {
+    upperlayerpotocol_->assign(*_default_upperlayerpotocol_);
+  }
+  clear_has_upperlayerpotocol();
 }
-inline const ::avim::proto::base::avPacketMessage& avimPacket::avmessage() const {
-  return avmessage_ != NULL ? *avmessage_ : *default_instance_->avmessage_;
+inline const ::std::string& avPacket::upperlayerpotocol() const {
+  return *upperlayerpotocol_;
 }
-inline ::avim::proto::base::avPacketMessage* avimPacket::mutable_avmessage() {
-  set_has_avmessage();
-  if (avmessage_ == NULL) avmessage_ = new ::avim::proto::base::avPacketMessage;
-  return avmessage_;
+inline void avPacket::set_upperlayerpotocol(const ::std::string& value) {
+  set_has_upperlayerpotocol();
+  if (upperlayerpotocol_ == _default_upperlayerpotocol_) {
+    upperlayerpotocol_ = new ::std::string;
+  }
+  upperlayerpotocol_->assign(value);
 }
-inline ::avim::proto::base::avPacketMessage* avimPacket::release_avmessage() {
-  clear_has_avmessage();
-  ::avim::proto::base::avPacketMessage* temp = avmessage_;
-  avmessage_ = NULL;
-  return temp;
+inline void avPacket::set_upperlayerpotocol(const char* value) {
+  set_has_upperlayerpotocol();
+  if (upperlayerpotocol_ == _default_upperlayerpotocol_) {
+    upperlayerpotocol_ = new ::std::string;
+  }
+  upperlayerpotocol_->assign(value);
 }
-inline void avimPacket::set_allocated_avmessage(::avim::proto::base::avPacketMessage* avmessage) {
-  delete avmessage_;
-  avmessage_ = avmessage;
-  if (avmessage) {
-    set_has_avmessage();
+inline void avPacket::set_upperlayerpotocol(const char* value, size_t size) {
+  set_has_upperlayerpotocol();
+  if (upperlayerpotocol_ == _default_upperlayerpotocol_) {
+    upperlayerpotocol_ = new ::std::string;
+  }
+  upperlayerpotocol_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* avPacket::mutable_upperlayerpotocol() {
+  set_has_upperlayerpotocol();
+  if (upperlayerpotocol_ == _default_upperlayerpotocol_) {
+    upperlayerpotocol_ = new ::std::string(*_default_upperlayerpotocol_);
+  }
+  return upperlayerpotocol_;
+}
+inline ::std::string* avPacket::release_upperlayerpotocol() {
+  clear_has_upperlayerpotocol();
+  if (upperlayerpotocol_ == _default_upperlayerpotocol_) {
+    return NULL;
   } else {
-    clear_has_avmessage();
+    ::std::string* temp = upperlayerpotocol_;
+    upperlayerpotocol_ = const_cast< ::std::string*>(_default_upperlayerpotocol_);
+    return temp;
+  }
+}
+inline void avPacket::set_allocated_upperlayerpotocol(::std::string* upperlayerpotocol) {
+  if (upperlayerpotocol_ != _default_upperlayerpotocol_) {
+    delete upperlayerpotocol_;
+  }
+  if (upperlayerpotocol) {
+    set_has_upperlayerpotocol();
+    upperlayerpotocol_ = upperlayerpotocol;
+  } else {
+    clear_has_upperlayerpotocol();
+    upperlayerpotocol_ = const_cast< ::std::string*>(_default_upperlayerpotocol_);
   }
 }
 
-// optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
-inline bool avimPacket::has_avmessage_reply() const {
+// required uint64 payload_length = 6;
+inline bool avPacket::has_payload_length() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void avimPacket::set_has_avmessage_reply() {
+inline void avPacket::set_has_payload_length() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void avimPacket::clear_has_avmessage_reply() {
+inline void avPacket::clear_has_payload_length() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void avimPacket::clear_avmessage_reply() {
-  if (avmessage_reply_ != NULL) avmessage_reply_->::avim::proto::base::avPacketMessageReplay::Clear();
-  clear_has_avmessage_reply();
+inline void avPacket::clear_payload_length() {
+  payload_length_ = GOOGLE_ULONGLONG(0);
+  clear_has_payload_length();
 }
-inline const ::avim::proto::base::avPacketMessageReplay& avimPacket::avmessage_reply() const {
-  return avmessage_reply_ != NULL ? *avmessage_reply_ : *default_instance_->avmessage_reply_;
+inline ::google::protobuf::uint64 avPacket::payload_length() const {
+  return payload_length_;
 }
-inline ::avim::proto::base::avPacketMessageReplay* avimPacket::mutable_avmessage_reply() {
-  set_has_avmessage_reply();
-  if (avmessage_reply_ == NULL) avmessage_reply_ = new ::avim::proto::base::avPacketMessageReplay;
-  return avmessage_reply_;
-}
-inline ::avim::proto::base::avPacketMessageReplay* avimPacket::release_avmessage_reply() {
-  clear_has_avmessage_reply();
-  ::avim::proto::base::avPacketMessageReplay* temp = avmessage_reply_;
-  avmessage_reply_ = NULL;
-  return temp;
-}
-inline void avimPacket::set_allocated_avmessage_reply(::avim::proto::base::avPacketMessageReplay* avmessage_reply) {
-  delete avmessage_reply_;
-  avmessage_reply_ = avmessage_reply;
-  if (avmessage_reply) {
-    set_has_avmessage_reply();
-  } else {
-    clear_has_avmessage_reply();
-  }
+inline void avPacket::set_payload_length(::google::protobuf::uint64 value) {
+  set_has_payload_length();
+  payload_length_ = value;
 }
 
-// optional .avim.proto.base.avClientControl avctl = 256;
-inline bool avimPacket::has_avctl() const {
+// optional bytes payload = 7;
+inline bool avPacket::has_payload() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void avimPacket::set_has_avctl() {
+inline void avPacket::set_has_payload() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void avimPacket::clear_has_avctl() {
+inline void avPacket::clear_has_payload() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void avimPacket::clear_avctl() {
-  if (avctl_ != NULL) avctl_->::avim::proto::base::avClientControl::Clear();
-  clear_has_avctl();
-}
-inline const ::avim::proto::base::avClientControl& avimPacket::avctl() const {
-  return avctl_ != NULL ? *avctl_ : *default_instance_->avctl_;
-}
-inline ::avim::proto::base::avClientControl* avimPacket::mutable_avctl() {
-  set_has_avctl();
-  if (avctl_ == NULL) avctl_ = new ::avim::proto::base::avClientControl;
-  return avctl_;
-}
-inline ::avim::proto::base::avClientControl* avimPacket::release_avctl() {
-  clear_has_avctl();
-  ::avim::proto::base::avClientControl* temp = avctl_;
-  avctl_ = NULL;
-  return temp;
-}
-inline void avimPacket::set_allocated_avctl(::avim::proto::base::avClientControl* avctl) {
-  delete avctl_;
-  avctl_ = avctl;
-  if (avctl) {
-    set_has_avctl();
-  } else {
-    clear_has_avctl();
+inline void avPacket::clear_payload() {
+  if (payload_ != &::google::protobuf::internal::kEmptyString) {
+    payload_->clear();
   }
+  clear_has_payload();
 }
-
-// -------------------------------------------------------------------
-
-// avClientControl
-
-// required .avim.proto.base.avClientControl.controltype type = 1;
-inline bool avClientControl::has_type() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+inline const ::std::string& avPacket::payload() const {
+  return *payload_;
 }
-inline void avClientControl::set_has_type() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void avClientControl::clear_has_type() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void avClientControl::clear_type() {
-  type_ = 0;
-  clear_has_type();
-}
-inline ::avim::proto::base::avClientControl_controltype avClientControl::type() const {
-  return static_cast< ::avim::proto::base::avClientControl_controltype >(type_);
-}
-inline void avClientControl::set_type(::avim::proto::base::avClientControl_controltype value) {
-  assert(::avim::proto::base::avClientControl_controltype_IsValid(value));
-  set_has_type();
-  type_ = value;
-}
-
-// optional string digest = 50;
-inline bool avClientControl::has_digest() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void avClientControl::set_has_digest() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void avClientControl::clear_has_digest() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void avClientControl::clear_digest() {
-  if (digest_ != &::google::protobuf::internal::kEmptyString) {
-    digest_->clear();
+inline void avPacket::set_payload(const ::std::string& value) {
+  set_has_payload();
+  if (payload_ == &::google::protobuf::internal::kEmptyString) {
+    payload_ = new ::std::string;
   }
-  clear_has_digest();
+  payload_->assign(value);
 }
-inline const ::std::string& avClientControl::digest() const {
-  return *digest_;
-}
-inline void avClientControl::set_digest(const ::std::string& value) {
-  set_has_digest();
-  if (digest_ == &::google::protobuf::internal::kEmptyString) {
-    digest_ = new ::std::string;
+inline void avPacket::set_payload(const char* value) {
+  set_has_payload();
+  if (payload_ == &::google::protobuf::internal::kEmptyString) {
+    payload_ = new ::std::string;
   }
-  digest_->assign(value);
+  payload_->assign(value);
 }
-inline void avClientControl::set_digest(const char* value) {
-  set_has_digest();
-  if (digest_ == &::google::protobuf::internal::kEmptyString) {
-    digest_ = new ::std::string;
+inline void avPacket::set_payload(const void* value, size_t size) {
+  set_has_payload();
+  if (payload_ == &::google::protobuf::internal::kEmptyString) {
+    payload_ = new ::std::string;
   }
-  digest_->assign(value);
+  payload_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline void avClientControl::set_digest(const char* value, size_t size) {
-  set_has_digest();
-  if (digest_ == &::google::protobuf::internal::kEmptyString) {
-    digest_ = new ::std::string;
+inline ::std::string* avPacket::mutable_payload() {
+  set_has_payload();
+  if (payload_ == &::google::protobuf::internal::kEmptyString) {
+    payload_ = new ::std::string;
   }
-  digest_->assign(reinterpret_cast<const char*>(value), size);
+  return payload_;
 }
-inline ::std::string* avClientControl::mutable_digest() {
-  set_has_digest();
-  if (digest_ == &::google::protobuf::internal::kEmptyString) {
-    digest_ = new ::std::string;
-  }
-  return digest_;
-}
-inline ::std::string* avClientControl::release_digest() {
-  clear_has_digest();
-  if (digest_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* avPacket::release_payload() {
+  clear_has_payload();
+  if (payload_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = digest_;
-    digest_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = payload_;
+    payload_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void avClientControl::set_allocated_digest(::std::string* digest) {
-  if (digest_ != &::google::protobuf::internal::kEmptyString) {
-    delete digest_;
+inline void avPacket::set_allocated_payload(::std::string* payload) {
+  if (payload_ != &::google::protobuf::internal::kEmptyString) {
+    delete payload_;
   }
-  if (digest) {
-    set_has_digest();
-    digest_ = digest;
+  if (payload) {
+    set_has_payload();
+    payload_ = payload;
   } else {
-    clear_has_digest();
-    digest_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_payload();
+    payload_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// -------------------------------------------------------------------
-
-// avPacketMessage
-
-// required uint64 length = 1;
-inline bool avPacketMessage::has_length() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// required bytes message_sign = 8;
+inline bool avPacket::has_message_sign() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void avPacketMessage::set_has_length() {
-  _has_bits_[0] |= 0x00000001u;
+inline void avPacket::set_has_message_sign() {
+  _has_bits_[0] |= 0x00000080u;
 }
-inline void avPacketMessage::clear_has_length() {
-  _has_bits_[0] &= ~0x00000001u;
+inline void avPacket::clear_has_message_sign() {
+  _has_bits_[0] &= ~0x00000080u;
 }
-inline void avPacketMessage::clear_length() {
-  length_ = GOOGLE_ULONGLONG(0);
-  clear_has_length();
-}
-inline ::google::protobuf::uint64 avPacketMessage::length() const {
-  return length_;
-}
-inline void avPacketMessage::set_length(::google::protobuf::uint64 value) {
-  set_has_length();
-  length_ = value;
-}
-
-// optional bytes msgblock = 2;
-inline bool avPacketMessage::has_msgblock() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void avPacketMessage::set_has_msgblock() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void avPacketMessage::clear_has_msgblock() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void avPacketMessage::clear_msgblock() {
-  if (msgblock_ != &::google::protobuf::internal::kEmptyString) {
-    msgblock_->clear();
+inline void avPacket::clear_message_sign() {
+  if (message_sign_ != &::google::protobuf::internal::kEmptyString) {
+    message_sign_->clear();
   }
-  clear_has_msgblock();
+  clear_has_message_sign();
 }
-inline const ::std::string& avPacketMessage::msgblock() const {
-  return *msgblock_;
+inline const ::std::string& avPacket::message_sign() const {
+  return *message_sign_;
 }
-inline void avPacketMessage::set_msgblock(const ::std::string& value) {
-  set_has_msgblock();
-  if (msgblock_ == &::google::protobuf::internal::kEmptyString) {
-    msgblock_ = new ::std::string;
+inline void avPacket::set_message_sign(const ::std::string& value) {
+  set_has_message_sign();
+  if (message_sign_ == &::google::protobuf::internal::kEmptyString) {
+    message_sign_ = new ::std::string;
   }
-  msgblock_->assign(value);
+  message_sign_->assign(value);
 }
-inline void avPacketMessage::set_msgblock(const char* value) {
-  set_has_msgblock();
-  if (msgblock_ == &::google::protobuf::internal::kEmptyString) {
-    msgblock_ = new ::std::string;
+inline void avPacket::set_message_sign(const char* value) {
+  set_has_message_sign();
+  if (message_sign_ == &::google::protobuf::internal::kEmptyString) {
+    message_sign_ = new ::std::string;
   }
-  msgblock_->assign(value);
+  message_sign_->assign(value);
 }
-inline void avPacketMessage::set_msgblock(const void* value, size_t size) {
-  set_has_msgblock();
-  if (msgblock_ == &::google::protobuf::internal::kEmptyString) {
-    msgblock_ = new ::std::string;
+inline void avPacket::set_message_sign(const void* value, size_t size) {
+  set_has_message_sign();
+  if (message_sign_ == &::google::protobuf::internal::kEmptyString) {
+    message_sign_ = new ::std::string;
   }
-  msgblock_->assign(reinterpret_cast<const char*>(value), size);
+  message_sign_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* avPacketMessage::mutable_msgblock() {
-  set_has_msgblock();
-  if (msgblock_ == &::google::protobuf::internal::kEmptyString) {
-    msgblock_ = new ::std::string;
+inline ::std::string* avPacket::mutable_message_sign() {
+  set_has_message_sign();
+  if (message_sign_ == &::google::protobuf::internal::kEmptyString) {
+    message_sign_ = new ::std::string;
   }
-  return msgblock_;
+  return message_sign_;
 }
-inline ::std::string* avPacketMessage::release_msgblock() {
-  clear_has_msgblock();
-  if (msgblock_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* avPacket::release_message_sign() {
+  clear_has_message_sign();
+  if (message_sign_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = msgblock_;
-    msgblock_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = message_sign_;
+    message_sign_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void avPacketMessage::set_allocated_msgblock(::std::string* msgblock) {
-  if (msgblock_ != &::google::protobuf::internal::kEmptyString) {
-    delete msgblock_;
+inline void avPacket::set_allocated_message_sign(::std::string* message_sign) {
+  if (message_sign_ != &::google::protobuf::internal::kEmptyString) {
+    delete message_sign_;
   }
-  if (msgblock) {
-    set_has_msgblock();
-    msgblock_ = msgblock;
+  if (message_sign) {
+    set_has_message_sign();
+    message_sign_ = message_sign;
   } else {
-    clear_has_msgblock();
-    msgblock_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// -------------------------------------------------------------------
-
-// avPacketMessageReplay_MultiStatus
-
-// required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-inline bool avPacketMessageReplay_MultiStatus::has_status() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void avPacketMessageReplay_MultiStatus::set_has_status() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void avPacketMessageReplay_MultiStatus::clear_has_status() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void avPacketMessageReplay_MultiStatus::clear_status() {
-  status_ = 0;
-  clear_has_status();
-}
-inline ::avim::proto::base::avPacketMessageReplay_Status avPacketMessageReplay_MultiStatus::status() const {
-  return static_cast< ::avim::proto::base::avPacketMessageReplay_Status >(status_);
-}
-inline void avPacketMessageReplay_MultiStatus::set_status(::avim::proto::base::avPacketMessageReplay_Status value) {
-  assert(::avim::proto::base::avPacketMessageReplay_Status_IsValid(value));
-  set_has_status();
-  status_ = value;
-}
-
-// required .avim.proto.base.avID avid = 2;
-inline bool avPacketMessageReplay_MultiStatus::has_avid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void avPacketMessageReplay_MultiStatus::set_has_avid() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void avPacketMessageReplay_MultiStatus::clear_has_avid() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void avPacketMessageReplay_MultiStatus::clear_avid() {
-  if (avid_ != NULL) avid_->::avim::proto::base::avID::Clear();
-  clear_has_avid();
-}
-inline const ::avim::proto::base::avID& avPacketMessageReplay_MultiStatus::avid() const {
-  return avid_ != NULL ? *avid_ : *default_instance_->avid_;
-}
-inline ::avim::proto::base::avID* avPacketMessageReplay_MultiStatus::mutable_avid() {
-  set_has_avid();
-  if (avid_ == NULL) avid_ = new ::avim::proto::base::avID;
-  return avid_;
-}
-inline ::avim::proto::base::avID* avPacketMessageReplay_MultiStatus::release_avid() {
-  clear_has_avid();
-  ::avim::proto::base::avID* temp = avid_;
-  avid_ = NULL;
-  return temp;
-}
-inline void avPacketMessageReplay_MultiStatus::set_allocated_avid(::avim::proto::base::avID* avid) {
-  delete avid_;
-  avid_ = avid;
-  if (avid) {
-    set_has_avid();
-  } else {
-    clear_has_avid();
-  }
-}
-
-// -------------------------------------------------------------------
-
-// avPacketMessageReplay
-
-// required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-inline bool avPacketMessageReplay::has_status() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void avPacketMessageReplay::set_has_status() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void avPacketMessageReplay::clear_has_status() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void avPacketMessageReplay::clear_status() {
-  status_ = 0;
-  clear_has_status();
-}
-inline ::avim::proto::base::avPacketMessageReplay_Status avPacketMessageReplay::status() const {
-  return static_cast< ::avim::proto::base::avPacketMessageReplay_Status >(status_);
-}
-inline void avPacketMessageReplay::set_status(::avim::proto::base::avPacketMessageReplay_Status value) {
-  assert(::avim::proto::base::avPacketMessageReplay_Status_IsValid(value));
-  set_has_status();
-  status_ = value;
-}
-
-// optional .avim.proto.base.avPacketMessageReplay.MultiStatus multistatus = 2;
-inline bool avPacketMessageReplay::has_multistatus() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void avPacketMessageReplay::set_has_multistatus() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void avPacketMessageReplay::clear_has_multistatus() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void avPacketMessageReplay::clear_multistatus() {
-  if (multistatus_ != NULL) multistatus_->::avim::proto::base::avPacketMessageReplay_MultiStatus::Clear();
-  clear_has_multistatus();
-}
-inline const ::avim::proto::base::avPacketMessageReplay_MultiStatus& avPacketMessageReplay::multistatus() const {
-  return multistatus_ != NULL ? *multistatus_ : *default_instance_->multistatus_;
-}
-inline ::avim::proto::base::avPacketMessageReplay_MultiStatus* avPacketMessageReplay::mutable_multistatus() {
-  set_has_multistatus();
-  if (multistatus_ == NULL) multistatus_ = new ::avim::proto::base::avPacketMessageReplay_MultiStatus;
-  return multistatus_;
-}
-inline ::avim::proto::base::avPacketMessageReplay_MultiStatus* avPacketMessageReplay::release_multistatus() {
-  clear_has_multistatus();
-  ::avim::proto::base::avPacketMessageReplay_MultiStatus* temp = multistatus_;
-  multistatus_ = NULL;
-  return temp;
-}
-inline void avPacketMessageReplay::set_allocated_multistatus(::avim::proto::base::avPacketMessageReplay_MultiStatus* multistatus) {
-  delete multistatus_;
-  multistatus_ = multistatus;
-  if (multistatus) {
-    set_has_multistatus();
-  } else {
-    clear_has_multistatus();
+    clear_has_message_sign();
+    message_sign_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
@@ -1706,14 +964,6 @@ inline void avPacketMessageReplay::set_allocated_multistatus(::avim::proto::base
 namespace google {
 namespace protobuf {
 
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::avim::proto::base::avClientControl_controltype>() {
-  return ::avim::proto::base::avClientControl_controltype_descriptor();
-}
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::avim::proto::base::avPacketMessageReplay_Status>() {
-  return ::avim::proto::base::avPacketMessageReplay_Status_descriptor();
-}
 
 }  // namespace google
 }  // namespace protobuf

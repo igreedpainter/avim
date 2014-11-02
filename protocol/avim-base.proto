@@ -11,9 +11,9 @@ message avAddress{
 
 // 这个就是基础包， av们相互通信使用的就是这个
 message avPacket{
-	required int type = 1; // 数据类型， 0 就是 avPacket
+	required uint32 type = 1; // 数据类型， 0 就是 avPacket
 	required avAddress src = 2; // 发送方地址
-	required figurprint = 3 ; // 客户端指纹
+	required bytes figurprint = 3 ; // 客户端指纹
 	required avAddress dest = 4; // 目的地地址
 	required string upperlayerpotocol = 5 [ default = "avim" ] ; // 表明上层软件是何种协议。
 

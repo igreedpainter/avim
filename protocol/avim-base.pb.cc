@@ -22,26 +22,12 @@ namespace base {
 
 namespace {
 
-const ::google::protobuf::Descriptor* avID_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* avAddress_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  avID_reflection_ = NULL;
-const ::google::protobuf::Descriptor* avimPacket_descriptor_ = NULL;
+  avAddress_reflection_ = NULL;
+const ::google::protobuf::Descriptor* avPacket_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  avimPacket_reflection_ = NULL;
-const ::google::protobuf::Descriptor* avClientControl_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  avClientControl_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* avClientControl_controltype_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* avPacketMessage_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  avPacketMessage_reflection_ = NULL;
-const ::google::protobuf::Descriptor* avPacketMessageReplay_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  avPacketMessageReplay_reflection_ = NULL;
-const ::google::protobuf::Descriptor* avPacketMessageReplay_MultiStatus_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  avPacketMessageReplay_MultiStatus_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* avPacketMessageReplay_Status_descriptor_ = NULL;
+  avPacket_reflection_ = NULL;
 
 }  // namespace
 
@@ -52,111 +38,45 @@ void protobuf_AssignDesc_avim_2dbase_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "avim-base.proto");
   GOOGLE_CHECK(file != NULL);
-  avID_descriptor_ = file->message_type(0);
-  static const int avID_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avID, username_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avID, domain_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avID, resource_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avID, useragent_),
+  avAddress_descriptor_ = file->message_type(0);
+  static const int avAddress_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avAddress, username_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avAddress, domain_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avAddress, resource_),
   };
-  avID_reflection_ =
+  avAddress_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      avID_descriptor_,
-      avID::default_instance_,
-      avID_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avID, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avID, _unknown_fields_),
+      avAddress_descriptor_,
+      avAddress::default_instance_,
+      avAddress_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avAddress, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avAddress, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(avID));
-  avimPacket_descriptor_ = file->message_type(1);
-  static const int avimPacket_offsets_[7] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, src_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, dest_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, all_ofline_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, application_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, avmessage_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, avmessage_reply_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, avctl_),
+      sizeof(avAddress));
+  avPacket_descriptor_ = file->message_type(1);
+  static const int avPacket_offsets_[8] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, src_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, figurprint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, dest_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, upperlayerpotocol_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, payload_length_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, payload_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, message_sign_),
   };
-  avimPacket_reflection_ =
+  avPacket_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      avimPacket_descriptor_,
-      avimPacket::default_instance_,
-      avimPacket_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avimPacket, _unknown_fields_),
+      avPacket_descriptor_,
+      avPacket::default_instance_,
+      avPacket_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(avimPacket));
-  avClientControl_descriptor_ = file->message_type(2);
-  static const int avClientControl_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avClientControl, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avClientControl, digest_),
-  };
-  avClientControl_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      avClientControl_descriptor_,
-      avClientControl::default_instance_,
-      avClientControl_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avClientControl, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avClientControl, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(avClientControl));
-  avClientControl_controltype_descriptor_ = avClientControl_descriptor_->enum_type(0);
-  avPacketMessage_descriptor_ = file->message_type(3);
-  static const int avPacketMessage_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessage, length_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessage, msgblock_),
-  };
-  avPacketMessage_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      avPacketMessage_descriptor_,
-      avPacketMessage::default_instance_,
-      avPacketMessage_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessage, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessage, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(avPacketMessage));
-  avPacketMessageReplay_descriptor_ = file->message_type(4);
-  static const int avPacketMessageReplay_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessageReplay, status_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessageReplay, multistatus_),
-  };
-  avPacketMessageReplay_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      avPacketMessageReplay_descriptor_,
-      avPacketMessageReplay::default_instance_,
-      avPacketMessageReplay_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessageReplay, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessageReplay, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(avPacketMessageReplay));
-  avPacketMessageReplay_MultiStatus_descriptor_ = avPacketMessageReplay_descriptor_->nested_type(0);
-  static const int avPacketMessageReplay_MultiStatus_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessageReplay_MultiStatus, status_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessageReplay_MultiStatus, avid_),
-  };
-  avPacketMessageReplay_MultiStatus_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      avPacketMessageReplay_MultiStatus_descriptor_,
-      avPacketMessageReplay_MultiStatus::default_instance_,
-      avPacketMessageReplay_MultiStatus_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessageReplay_MultiStatus, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacketMessageReplay_MultiStatus, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(avPacketMessageReplay_MultiStatus));
-  avPacketMessageReplay_Status_descriptor_ = avPacketMessageReplay_descriptor_->enum_type(0);
+      sizeof(avPacket));
 }
 
 namespace {
@@ -170,35 +90,19 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    avID_descriptor_, &avID::default_instance());
+    avAddress_descriptor_, &avAddress::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    avimPacket_descriptor_, &avimPacket::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    avClientControl_descriptor_, &avClientControl::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    avPacketMessage_descriptor_, &avPacketMessage::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    avPacketMessageReplay_descriptor_, &avPacketMessageReplay::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    avPacketMessageReplay_MultiStatus_descriptor_, &avPacketMessageReplay_MultiStatus::default_instance());
+    avPacket_descriptor_, &avPacket::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_avim_2dbase_2eproto() {
-  delete avID::default_instance_;
-  delete avID_reflection_;
-  delete avimPacket::default_instance_;
-  delete avimPacket_reflection_;
-  delete avimPacket::_default_application_;
-  delete avClientControl::default_instance_;
-  delete avClientControl_reflection_;
-  delete avPacketMessage::default_instance_;
-  delete avPacketMessage_reflection_;
-  delete avPacketMessageReplay::default_instance_;
-  delete avPacketMessageReplay_reflection_;
-  delete avPacketMessageReplay_MultiStatus::default_instance_;
-  delete avPacketMessageReplay_MultiStatus_reflection_;
+  delete avAddress::default_instance_;
+  delete avAddress_reflection_;
+  delete avPacket::default_instance_;
+  delete avPacket_reflection_;
+  delete avPacket::_default_upperlayerpotocol_;
 }
 
 void protobuf_AddDesc_avim_2dbase_2eproto() {
@@ -208,48 +112,23 @@ void protobuf_AddDesc_avim_2dbase_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017avim-base.proto\022\017avim.proto.base\"M\n\004av"
-    "ID\022\020\n\010username\030\001 \002(\t\022\016\n\006domain\030\002 \002(\t\022\020\n\010"
-    "resource\030\003 \001(\t\022\021\n\tuseragent\030\004 \001(\t\"\263\002\n\nav"
-    "imPacket\022\"\n\003src\030\001 \002(\0132\025.avim.proto.base."
-    "avID\022#\n\004dest\030\002 \003(\0132\025.avim.proto.base.avI"
-    "D\022\031\n\nall_ofline\030\004 \002(\010:\005false\022\031\n\013applicat"
-    "ion\030\003 \002(\t:\004avim\0223\n\tavmessage\030\005 \001(\0132 .avi"
-    "m.proto.base.avPacketMessage\022\?\n\017avmessag"
-    "e_reply\030\006 \001(\0132&.avim.proto.base.avPacket"
-    "MessageReplay\0220\n\005avctl\030\200\002 \001(\0132 .avim.pro"
-    "to.base.avClientControl\"\233\001\n\017avClientCont"
-    "rol\022:\n\004type\030\001 \002(\0162,.avim.proto.base.avCl"
-    "ientControl.controltype\022\016\n\006digest\0302 \001(\t\""
-    "<\n\013controltype\022\t\n\005LOGIN\020\000\022\021\n\rAUTH_REQUIR"
-    "ED\020\001\022\017\n\013DIGEST_AUTH\020\002\"3\n\017avPacketMessage"
-    "\022\016\n\006length\030\001 \002(\004\022\020\n\010msgblock\030\002 \001(\014\"\200\003\n\025a"
-    "vPacketMessageReplay\022=\n\006status\030\001 \002(\0162-.a"
-    "vim.proto.base.avPacketMessageReplay.Sta"
-    "tus\022G\n\013multistatus\030\002 \001(\01322.avim.proto.ba"
-    "se.avPacketMessageReplay.MultiStatus\032q\n\013"
-    "MultiStatus\022=\n\006status\030\001 \002(\0162-.avim.proto"
-    ".base.avPacketMessageReplay.Status\022#\n\004av"
-    "id\030\002 \002(\0132\025.avim.proto.base.avID\"l\n\006Statu"
-    "s\022\r\n\tDELIVERED\020\000\022\013\n\007SUCCESS\020\000\022\n\n\006FAILED\020"
-    "\001\022\024\n\020SUCCESS_OFFLINED\020\002\022 \n\034MULTIADDREDD_"
-    "STATUS_ATTACHED\020\003\032\002\020\001", 1021);
+    "\n\017avim-base.proto\022\017avim.proto.base\"\?\n\tav"
+    "Address\022\020\n\010username\030\001 \002(\t\022\016\n\006domain\030\002 \002("
+    "\t\022\020\n\010resource\030\003 \001(\t\"\337\001\n\010avPacket\022\014\n\004type"
+    "\030\001 \002(\r\022\'\n\003src\030\002 \002(\0132\032.avim.proto.base.av"
+    "Address\022\022\n\nfigurprint\030\003 \002(\014\022(\n\004dest\030\004 \002("
+    "\0132\032.avim.proto.base.avAddress\022\037\n\021upperla"
+    "yerpotocol\030\005 \002(\t:\004avim\022\026\n\016payload_length"
+    "\030\006 \002(\004\022\017\n\007payload\030\007 \001(\014\022\024\n\014message_sign\030"
+    "\010 \002(\014", 325);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "avim-base.proto", &protobuf_RegisterTypes);
-  avID::default_instance_ = new avID();
-  avimPacket::_default_application_ =
+  avAddress::default_instance_ = new avAddress();
+  avPacket::_default_upperlayerpotocol_ =
       new ::std::string("avim", 4);
-  avimPacket::default_instance_ = new avimPacket();
-  avClientControl::default_instance_ = new avClientControl();
-  avPacketMessage::default_instance_ = new avPacketMessage();
-  avPacketMessageReplay::default_instance_ = new avPacketMessageReplay();
-  avPacketMessageReplay_MultiStatus::default_instance_ = new avPacketMessageReplay_MultiStatus();
-  avID::default_instance_->InitAsDefaultInstance();
-  avimPacket::default_instance_->InitAsDefaultInstance();
-  avClientControl::default_instance_->InitAsDefaultInstance();
-  avPacketMessage::default_instance_->InitAsDefaultInstance();
-  avPacketMessageReplay::default_instance_->InitAsDefaultInstance();
-  avPacketMessageReplay_MultiStatus::default_instance_->InitAsDefaultInstance();
+  avPacket::default_instance_ = new avPacket();
+  avAddress::default_instance_->InitAsDefaultInstance();
+  avPacket::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_avim_2dbase_2eproto);
 }
 
@@ -263,40 +142,38 @@ struct StaticDescriptorInitializer_avim_2dbase_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int avID::kUsernameFieldNumber;
-const int avID::kDomainFieldNumber;
-const int avID::kResourceFieldNumber;
-const int avID::kUseragentFieldNumber;
+const int avAddress::kUsernameFieldNumber;
+const int avAddress::kDomainFieldNumber;
+const int avAddress::kResourceFieldNumber;
 #endif  // !_MSC_VER
 
-avID::avID()
+avAddress::avAddress()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void avID::InitAsDefaultInstance() {
+void avAddress::InitAsDefaultInstance() {
 }
 
-avID::avID(const avID& from)
+avAddress::avAddress(const avAddress& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void avID::SharedCtor() {
+void avAddress::SharedCtor() {
   _cached_size_ = 0;
   username_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   domain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   resource_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  useragent_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-avID::~avID() {
+avAddress::~avAddress() {
   SharedDtor();
 }
 
-void avID::SharedDtor() {
+void avAddress::SharedDtor() {
   if (username_ != &::google::protobuf::internal::kEmptyString) {
     delete username_;
   }
@@ -306,35 +183,32 @@ void avID::SharedDtor() {
   if (resource_ != &::google::protobuf::internal::kEmptyString) {
     delete resource_;
   }
-  if (useragent_ != &::google::protobuf::internal::kEmptyString) {
-    delete useragent_;
-  }
   if (this != default_instance_) {
   }
 }
 
-void avID::SetCachedSize(int size) const {
+void avAddress::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* avID::descriptor() {
+const ::google::protobuf::Descriptor* avAddress::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return avID_descriptor_;
+  return avAddress_descriptor_;
 }
 
-const avID& avID::default_instance() {
+const avAddress& avAddress::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_avim_2dbase_2eproto();
   return *default_instance_;
 }
 
-avID* avID::default_instance_ = NULL;
+avAddress* avAddress::default_instance_ = NULL;
 
-avID* avID::New() const {
-  return new avID;
+avAddress* avAddress::New() const {
+  return new avAddress;
 }
 
-void avID::Clear() {
+void avAddress::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_username()) {
       if (username_ != &::google::protobuf::internal::kEmptyString) {
@@ -351,17 +225,12 @@ void avID::Clear() {
         resource_->clear();
       }
     }
-    if (has_useragent()) {
-      if (useragent_ != &::google::protobuf::internal::kEmptyString) {
-        useragent_->clear();
-      }
-    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool avID::MergePartialFromCodedStream(
+bool avAddress::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -413,23 +282,6 @@ bool avID::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_useragent;
-        break;
-      }
-
-      // optional string useragent = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_useragent:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_useragent()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->useragent().data(), this->useragent().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -450,7 +302,7 @@ bool avID::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void avID::SerializeWithCachedSizes(
+void avAddress::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string username = 1;
   if (has_username()) {
@@ -479,22 +331,13 @@ void avID::SerializeWithCachedSizes(
       3, this->resource(), output);
   }
 
-  // optional string useragent = 4;
-  if (has_useragent()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->useragent().data(), this->useragent().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->useragent(), output);
-  }
-
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
 }
 
-::google::protobuf::uint8* avID::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* avAddress::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required string username = 1;
   if (has_username()) {
@@ -526,16 +369,6 @@ void avID::SerializeWithCachedSizes(
         3, this->resource(), target);
   }
 
-  // optional string useragent = 4;
-  if (has_useragent()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->useragent().data(), this->useragent().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->useragent(), target);
-  }
-
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -543,7 +376,7 @@ void avID::SerializeWithCachedSizes(
   return target;
 }
 
-int avID::ByteSize() const {
+int avAddress::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -568,13 +401,6 @@ int avID::ByteSize() const {
           this->resource());
     }
 
-    // optional string useragent = 4;
-    if (has_useragent()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->useragent());
-    }
-
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -587,10 +413,10 @@ int avID::ByteSize() const {
   return total_size;
 }
 
-void avID::MergeFrom(const ::google::protobuf::Message& from) {
+void avAddress::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const avID* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const avID*>(
+  const avAddress* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const avAddress*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -599,7 +425,7 @@ void avID::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void avID::MergeFrom(const avID& from) {
+void avAddress::MergeFrom(const avAddress& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_username()) {
@@ -611,259 +437,287 @@ void avID::MergeFrom(const avID& from) {
     if (from.has_resource()) {
       set_resource(from.resource());
     }
-    if (from.has_useragent()) {
-      set_useragent(from.useragent());
-    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void avID::CopyFrom(const ::google::protobuf::Message& from) {
+void avAddress::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void avID::CopyFrom(const avID& from) {
+void avAddress::CopyFrom(const avAddress& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool avID::IsInitialized() const {
+bool avAddress::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
 
-void avID::Swap(avID* other) {
+void avAddress::Swap(avAddress* other) {
   if (other != this) {
     std::swap(username_, other->username_);
     std::swap(domain_, other->domain_);
     std::swap(resource_, other->resource_);
-    std::swap(useragent_, other->useragent_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata avID::GetMetadata() const {
+::google::protobuf::Metadata avAddress::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = avID_descriptor_;
-  metadata.reflection = avID_reflection_;
+  metadata.descriptor = avAddress_descriptor_;
+  metadata.reflection = avAddress_reflection_;
   return metadata;
 }
 
 
 // ===================================================================
 
-::std::string* avimPacket::_default_application_ = NULL;
+::std::string* avPacket::_default_upperlayerpotocol_ = NULL;
 #ifndef _MSC_VER
-const int avimPacket::kSrcFieldNumber;
-const int avimPacket::kDestFieldNumber;
-const int avimPacket::kAllOflineFieldNumber;
-const int avimPacket::kApplicationFieldNumber;
-const int avimPacket::kAvmessageFieldNumber;
-const int avimPacket::kAvmessageReplyFieldNumber;
-const int avimPacket::kAvctlFieldNumber;
+const int avPacket::kTypeFieldNumber;
+const int avPacket::kSrcFieldNumber;
+const int avPacket::kFigurprintFieldNumber;
+const int avPacket::kDestFieldNumber;
+const int avPacket::kUpperlayerpotocolFieldNumber;
+const int avPacket::kPayloadLengthFieldNumber;
+const int avPacket::kPayloadFieldNumber;
+const int avPacket::kMessageSignFieldNumber;
 #endif  // !_MSC_VER
 
-avimPacket::avimPacket()
+avPacket::avPacket()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void avimPacket::InitAsDefaultInstance() {
-  src_ = const_cast< ::avim::proto::base::avID*>(&::avim::proto::base::avID::default_instance());
-  avmessage_ = const_cast< ::avim::proto::base::avPacketMessage*>(&::avim::proto::base::avPacketMessage::default_instance());
-  avmessage_reply_ = const_cast< ::avim::proto::base::avPacketMessageReplay*>(&::avim::proto::base::avPacketMessageReplay::default_instance());
-  avctl_ = const_cast< ::avim::proto::base::avClientControl*>(&::avim::proto::base::avClientControl::default_instance());
+void avPacket::InitAsDefaultInstance() {
+  src_ = const_cast< ::avim::proto::base::avAddress*>(&::avim::proto::base::avAddress::default_instance());
+  dest_ = const_cast< ::avim::proto::base::avAddress*>(&::avim::proto::base::avAddress::default_instance());
 }
 
-avimPacket::avimPacket(const avimPacket& from)
+avPacket::avPacket(const avPacket& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void avimPacket::SharedCtor() {
+void avPacket::SharedCtor() {
   _cached_size_ = 0;
+  type_ = 0u;
   src_ = NULL;
-  all_ofline_ = false;
-  application_ = const_cast< ::std::string*>(_default_application_);
-  avmessage_ = NULL;
-  avmessage_reply_ = NULL;
-  avctl_ = NULL;
+  figurprint_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  dest_ = NULL;
+  upperlayerpotocol_ = const_cast< ::std::string*>(_default_upperlayerpotocol_);
+  payload_length_ = GOOGLE_ULONGLONG(0);
+  payload_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  message_sign_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-avimPacket::~avimPacket() {
+avPacket::~avPacket() {
   SharedDtor();
 }
 
-void avimPacket::SharedDtor() {
-  if (application_ != _default_application_) {
-    delete application_;
+void avPacket::SharedDtor() {
+  if (figurprint_ != &::google::protobuf::internal::kEmptyString) {
+    delete figurprint_;
+  }
+  if (upperlayerpotocol_ != _default_upperlayerpotocol_) {
+    delete upperlayerpotocol_;
+  }
+  if (payload_ != &::google::protobuf::internal::kEmptyString) {
+    delete payload_;
+  }
+  if (message_sign_ != &::google::protobuf::internal::kEmptyString) {
+    delete message_sign_;
   }
   if (this != default_instance_) {
     delete src_;
-    delete avmessage_;
-    delete avmessage_reply_;
-    delete avctl_;
+    delete dest_;
   }
 }
 
-void avimPacket::SetCachedSize(int size) const {
+void avPacket::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* avimPacket::descriptor() {
+const ::google::protobuf::Descriptor* avPacket::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return avimPacket_descriptor_;
+  return avPacket_descriptor_;
 }
 
-const avimPacket& avimPacket::default_instance() {
+const avPacket& avPacket::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_avim_2dbase_2eproto();
   return *default_instance_;
 }
 
-avimPacket* avimPacket::default_instance_ = NULL;
+avPacket* avPacket::default_instance_ = NULL;
 
-avimPacket* avimPacket::New() const {
-  return new avimPacket;
+avPacket* avPacket::New() const {
+  return new avPacket;
 }
 
-void avimPacket::Clear() {
+void avPacket::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    type_ = 0u;
     if (has_src()) {
-      if (src_ != NULL) src_->::avim::proto::base::avID::Clear();
+      if (src_ != NULL) src_->::avim::proto::base::avAddress::Clear();
     }
-    all_ofline_ = false;
-    if (has_application()) {
-      if (application_ != _default_application_) {
-        application_->assign(*_default_application_);
+    if (has_figurprint()) {
+      if (figurprint_ != &::google::protobuf::internal::kEmptyString) {
+        figurprint_->clear();
       }
     }
-    if (has_avmessage()) {
-      if (avmessage_ != NULL) avmessage_->::avim::proto::base::avPacketMessage::Clear();
+    if (has_dest()) {
+      if (dest_ != NULL) dest_->::avim::proto::base::avAddress::Clear();
     }
-    if (has_avmessage_reply()) {
-      if (avmessage_reply_ != NULL) avmessage_reply_->::avim::proto::base::avPacketMessageReplay::Clear();
+    if (has_upperlayerpotocol()) {
+      if (upperlayerpotocol_ != _default_upperlayerpotocol_) {
+        upperlayerpotocol_->assign(*_default_upperlayerpotocol_);
+      }
     }
-    if (has_avctl()) {
-      if (avctl_ != NULL) avctl_->::avim::proto::base::avClientControl::Clear();
+    payload_length_ = GOOGLE_ULONGLONG(0);
+    if (has_payload()) {
+      if (payload_ != &::google::protobuf::internal::kEmptyString) {
+        payload_->clear();
+      }
+    }
+    if (has_message_sign()) {
+      if (message_sign_ != &::google::protobuf::internal::kEmptyString) {
+        message_sign_->clear();
+      }
     }
   }
-  dest_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool avimPacket::MergePartialFromCodedStream(
+bool avPacket::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .avim.proto.base.avID src = 1;
+      // required uint32 type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_src;
+        break;
+      }
+
+      // required .avim.proto.base.avAddress src = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_src:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_src()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_dest;
+        if (input->ExpectTag(26)) goto parse_figurprint;
         break;
       }
 
-      // repeated .avim.proto.base.avID dest = 2;
-      case 2: {
+      // required bytes figurprint = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_figurprint:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_figurprint()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_dest;
+        break;
+      }
+
+      // required .avim.proto.base.avAddress dest = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_dest:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_dest()));
+               input, mutable_dest()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_dest;
-        if (input->ExpectTag(26)) goto parse_application;
+        if (input->ExpectTag(42)) goto parse_upperlayerpotocol;
         break;
       }
 
-      // required string application = 3 [default = "avim"];
-      case 3: {
+      // required string upperlayerpotocol = 5 [default = "avim"];
+      case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_application:
+         parse_upperlayerpotocol:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_application()));
+                input, this->mutable_upperlayerpotocol()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->application().data(), this->application().length(),
+            this->upperlayerpotocol().data(), this->upperlayerpotocol().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_all_ofline;
+        if (input->ExpectTag(48)) goto parse_payload_length;
         break;
       }
 
-      // required bool all_ofline = 4 [default = false];
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_all_ofline:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &all_ofline_)));
-          set_has_all_ofline();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(42)) goto parse_avmessage;
-        break;
-      }
-
-      // optional .avim.proto.base.avPacketMessage avmessage = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_avmessage:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_avmessage()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(50)) goto parse_avmessage_reply;
-        break;
-      }
-
-      // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
+      // required uint64 payload_length = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_avmessage_reply:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_avmessage_reply()));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_payload_length:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &payload_length_)));
+          set_has_payload_length();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(2050)) goto parse_avctl;
+        if (input->ExpectTag(58)) goto parse_payload;
         break;
       }
 
-      // optional .avim.proto.base.avClientControl avctl = 256;
-      case 256: {
+      // optional bytes payload = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_avctl:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_avctl()));
+         parse_payload:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_payload()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(66)) goto parse_message_sign;
+        break;
+      }
+
+      // required bytes message_sign = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_message_sign:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_message_sign()));
         } else {
           goto handle_uninterpreted;
         }
@@ -887,50 +741,55 @@ bool avimPacket::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void avimPacket::SerializeWithCachedSizes(
+void avPacket::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .avim.proto.base.avID src = 1;
+  // required uint32 type = 1;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->type(), output);
+  }
+
+  // required .avim.proto.base.avAddress src = 2;
   if (has_src()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->src(), output);
+      2, this->src(), output);
   }
 
-  // repeated .avim.proto.base.avID dest = 2;
-  for (int i = 0; i < this->dest_size(); i++) {
+  // required bytes figurprint = 3;
+  if (has_figurprint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      3, this->figurprint(), output);
+  }
+
+  // required .avim.proto.base.avAddress dest = 4;
+  if (has_dest()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->dest(i), output);
+      4, this->dest(), output);
   }
 
-  // required string application = 3 [default = "avim"];
-  if (has_application()) {
+  // required string upperlayerpotocol = 5 [default = "avim"];
+  if (has_upperlayerpotocol()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->application().data(), this->application().length(),
+      this->upperlayerpotocol().data(), this->upperlayerpotocol().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->application(), output);
+      5, this->upperlayerpotocol(), output);
   }
 
-  // required bool all_ofline = 4 [default = false];
-  if (has_all_ofline()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->all_ofline(), output);
+  // required uint64 payload_length = 6;
+  if (has_payload_length()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->payload_length(), output);
   }
 
-  // optional .avim.proto.base.avPacketMessage avmessage = 5;
-  if (has_avmessage()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->avmessage(), output);
+  // optional bytes payload = 7;
+  if (has_payload()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      7, this->payload(), output);
   }
 
-  // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
-  if (has_avmessage_reply()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, this->avmessage_reply(), output);
-  }
-
-  // optional .avim.proto.base.avClientControl avctl = 256;
-  if (has_avctl()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      256, this->avctl(), output);
+  // required bytes message_sign = 8;
+  if (has_message_sign()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      8, this->message_sign(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -939,56 +798,61 @@ void avimPacket::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* avimPacket::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* avPacket::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .avim.proto.base.avID src = 1;
+  // required uint32 type = 1;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->type(), target);
+  }
+
+  // required .avim.proto.base.avAddress src = 2;
   if (has_src()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->src(), target);
+        2, this->src(), target);
   }
 
-  // repeated .avim.proto.base.avID dest = 2;
-  for (int i = 0; i < this->dest_size(); i++) {
+  // required bytes figurprint = 3;
+  if (has_figurprint()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->figurprint(), target);
+  }
+
+  // required .avim.proto.base.avAddress dest = 4;
+  if (has_dest()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->dest(i), target);
+        4, this->dest(), target);
   }
 
-  // required string application = 3 [default = "avim"];
-  if (has_application()) {
+  // required string upperlayerpotocol = 5 [default = "avim"];
+  if (has_upperlayerpotocol()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->application().data(), this->application().length(),
+      this->upperlayerpotocol().data(), this->upperlayerpotocol().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->application(), target);
+        5, this->upperlayerpotocol(), target);
   }
 
-  // required bool all_ofline = 4 [default = false];
-  if (has_all_ofline()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->all_ofline(), target);
+  // required uint64 payload_length = 6;
+  if (has_payload_length()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->payload_length(), target);
   }
 
-  // optional .avim.proto.base.avPacketMessage avmessage = 5;
-  if (has_avmessage()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        5, this->avmessage(), target);
+  // optional bytes payload = 7;
+  if (has_payload()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        7, this->payload(), target);
   }
 
-  // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
-  if (has_avmessage_reply()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        6, this->avmessage_reply(), target);
-  }
-
-  // optional .avim.proto.base.avClientControl avctl = 256;
-  if (has_avctl()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        256, this->avctl(), target);
+  // required bytes message_sign = 8;
+  if (has_message_sign()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        8, this->message_sign(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -998,384 +862,64 @@ void avimPacket::SerializeWithCachedSizes(
   return target;
 }
 
-int avimPacket::ByteSize() const {
+int avPacket::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .avim.proto.base.avID src = 1;
+    // required uint32 type = 1;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->type());
+    }
+
+    // required .avim.proto.base.avAddress src = 2;
     if (has_src()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->src());
     }
 
-    // required bool all_ofline = 4 [default = false];
-    if (has_all_ofline()) {
-      total_size += 1 + 1;
+    // required bytes figurprint = 3;
+    if (has_figurprint()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->figurprint());
     }
 
-    // required string application = 3 [default = "avim"];
-    if (has_application()) {
+    // required .avim.proto.base.avAddress dest = 4;
+    if (has_dest()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->dest());
+    }
+
+    // required string upperlayerpotocol = 5 [default = "avim"];
+    if (has_upperlayerpotocol()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->application());
+          this->upperlayerpotocol());
     }
 
-    // optional .avim.proto.base.avPacketMessage avmessage = 5;
-    if (has_avmessage()) {
+    // required uint64 payload_length = 6;
+    if (has_payload_length()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->avmessage());
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->payload_length());
     }
 
-    // optional .avim.proto.base.avPacketMessageReplay avmessage_reply = 6;
-    if (has_avmessage_reply()) {
+    // optional bytes payload = 7;
+    if (has_payload()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->avmessage_reply());
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->payload());
     }
 
-    // optional .avim.proto.base.avClientControl avctl = 256;
-    if (has_avctl()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->avctl());
-    }
-
-  }
-  // repeated .avim.proto.base.avID dest = 2;
-  total_size += 1 * this->dest_size();
-  for (int i = 0; i < this->dest_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->dest(i));
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void avimPacket::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const avimPacket* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const avimPacket*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void avimPacket::MergeFrom(const avimPacket& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  dest_.MergeFrom(from.dest_);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_src()) {
-      mutable_src()->::avim::proto::base::avID::MergeFrom(from.src());
-    }
-    if (from.has_all_ofline()) {
-      set_all_ofline(from.all_ofline());
-    }
-    if (from.has_application()) {
-      set_application(from.application());
-    }
-    if (from.has_avmessage()) {
-      mutable_avmessage()->::avim::proto::base::avPacketMessage::MergeFrom(from.avmessage());
-    }
-    if (from.has_avmessage_reply()) {
-      mutable_avmessage_reply()->::avim::proto::base::avPacketMessageReplay::MergeFrom(from.avmessage_reply());
-    }
-    if (from.has_avctl()) {
-      mutable_avctl()->::avim::proto::base::avClientControl::MergeFrom(from.avctl());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void avimPacket::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void avimPacket::CopyFrom(const avimPacket& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool avimPacket::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000d) != 0x0000000d) return false;
-
-  if (has_src()) {
-    if (!this->src().IsInitialized()) return false;
-  }
-  for (int i = 0; i < dest_size(); i++) {
-    if (!this->dest(i).IsInitialized()) return false;
-  }
-  if (has_avmessage()) {
-    if (!this->avmessage().IsInitialized()) return false;
-  }
-  if (has_avmessage_reply()) {
-    if (!this->avmessage_reply().IsInitialized()) return false;
-  }
-  if (has_avctl()) {
-    if (!this->avctl().IsInitialized()) return false;
-  }
-  return true;
-}
-
-void avimPacket::Swap(avimPacket* other) {
-  if (other != this) {
-    std::swap(src_, other->src_);
-    dest_.Swap(&other->dest_);
-    std::swap(all_ofline_, other->all_ofline_);
-    std::swap(application_, other->application_);
-    std::swap(avmessage_, other->avmessage_);
-    std::swap(avmessage_reply_, other->avmessage_reply_);
-    std::swap(avctl_, other->avctl_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata avimPacket::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = avimPacket_descriptor_;
-  metadata.reflection = avimPacket_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-const ::google::protobuf::EnumDescriptor* avClientControl_controltype_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return avClientControl_controltype_descriptor_;
-}
-bool avClientControl_controltype_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#ifndef _MSC_VER
-const avClientControl_controltype avClientControl::LOGIN;
-const avClientControl_controltype avClientControl::AUTH_REQUIRED;
-const avClientControl_controltype avClientControl::DIGEST_AUTH;
-const avClientControl_controltype avClientControl::controltype_MIN;
-const avClientControl_controltype avClientControl::controltype_MAX;
-const int avClientControl::controltype_ARRAYSIZE;
-#endif  // _MSC_VER
-#ifndef _MSC_VER
-const int avClientControl::kTypeFieldNumber;
-const int avClientControl::kDigestFieldNumber;
-#endif  // !_MSC_VER
-
-avClientControl::avClientControl()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void avClientControl::InitAsDefaultInstance() {
-}
-
-avClientControl::avClientControl(const avClientControl& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void avClientControl::SharedCtor() {
-  _cached_size_ = 0;
-  type_ = 0;
-  digest_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-avClientControl::~avClientControl() {
-  SharedDtor();
-}
-
-void avClientControl::SharedDtor() {
-  if (digest_ != &::google::protobuf::internal::kEmptyString) {
-    delete digest_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void avClientControl::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* avClientControl::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return avClientControl_descriptor_;
-}
-
-const avClientControl& avClientControl::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_avim_2dbase_2eproto();
-  return *default_instance_;
-}
-
-avClientControl* avClientControl::default_instance_ = NULL;
-
-avClientControl* avClientControl::New() const {
-  return new avClientControl;
-}
-
-void avClientControl::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    if (has_digest()) {
-      if (digest_ != &::google::protobuf::internal::kEmptyString) {
-        digest_->clear();
-      }
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool avClientControl::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .avim.proto.base.avClientControl.controltype type = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::avim::proto::base::avClientControl_controltype_IsValid(value)) {
-            set_type(static_cast< ::avim::proto::base::avClientControl_controltype >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(402)) goto parse_digest;
-        break;
-      }
-
-      // optional string digest = 50;
-      case 50: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_digest:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_digest()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->digest().data(), this->digest().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void avClientControl::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .avim.proto.base.avClientControl.controltype type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->type(), output);
-  }
-
-  // optional string digest = 50;
-  if (has_digest()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->digest().data(), this->digest().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      50, this->digest(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* avClientControl::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required .avim.proto.base.avClientControl.controltype type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->type(), target);
-  }
-
-  // optional string digest = 50;
-  if (has_digest()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->digest().data(), this->digest().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        50, this->digest(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int avClientControl::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .avim.proto.base.avClientControl.controltype type = 1;
-    if (has_type()) {
+    // required bytes message_sign = 8;
+    if (has_message_sign()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
-    }
-
-    // optional string digest = 50;
-    if (has_digest()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->digest());
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->message_sign());
     }
 
   }
@@ -1390,10 +934,10 @@ int avClientControl::ByteSize() const {
   return total_size;
 }
 
-void avClientControl::MergeFrom(const ::google::protobuf::Message& from) {
+void avPacket::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const avClientControl* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const avClientControl*>(
+  const avPacket* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const avPacket*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1402,861 +946,82 @@ void avClientControl::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void avClientControl::MergeFrom(const avClientControl& from) {
+void avPacket::MergeFrom(const avPacket& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_type()) {
       set_type(from.type());
     }
-    if (from.has_digest()) {
-      set_digest(from.digest());
+    if (from.has_src()) {
+      mutable_src()->::avim::proto::base::avAddress::MergeFrom(from.src());
+    }
+    if (from.has_figurprint()) {
+      set_figurprint(from.figurprint());
+    }
+    if (from.has_dest()) {
+      mutable_dest()->::avim::proto::base::avAddress::MergeFrom(from.dest());
+    }
+    if (from.has_upperlayerpotocol()) {
+      set_upperlayerpotocol(from.upperlayerpotocol());
+    }
+    if (from.has_payload_length()) {
+      set_payload_length(from.payload_length());
+    }
+    if (from.has_payload()) {
+      set_payload(from.payload());
+    }
+    if (from.has_message_sign()) {
+      set_message_sign(from.message_sign());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void avClientControl::CopyFrom(const ::google::protobuf::Message& from) {
+void avPacket::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void avClientControl::CopyFrom(const avClientControl& from) {
+void avPacket::CopyFrom(const avPacket& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool avClientControl::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+bool avPacket::IsInitialized() const {
+  if ((_has_bits_[0] & 0x000000bf) != 0x000000bf) return false;
 
+  if (has_src()) {
+    if (!this->src().IsInitialized()) return false;
+  }
+  if (has_dest()) {
+    if (!this->dest().IsInitialized()) return false;
+  }
   return true;
 }
 
-void avClientControl::Swap(avClientControl* other) {
+void avPacket::Swap(avPacket* other) {
   if (other != this) {
     std::swap(type_, other->type_);
-    std::swap(digest_, other->digest_);
+    std::swap(src_, other->src_);
+    std::swap(figurprint_, other->figurprint_);
+    std::swap(dest_, other->dest_);
+    std::swap(upperlayerpotocol_, other->upperlayerpotocol_);
+    std::swap(payload_length_, other->payload_length_);
+    std::swap(payload_, other->payload_);
+    std::swap(message_sign_, other->message_sign_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata avClientControl::GetMetadata() const {
+::google::protobuf::Metadata avPacket::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = avClientControl_descriptor_;
-  metadata.reflection = avClientControl_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int avPacketMessage::kLengthFieldNumber;
-const int avPacketMessage::kMsgblockFieldNumber;
-#endif  // !_MSC_VER
-
-avPacketMessage::avPacketMessage()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void avPacketMessage::InitAsDefaultInstance() {
-}
-
-avPacketMessage::avPacketMessage(const avPacketMessage& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void avPacketMessage::SharedCtor() {
-  _cached_size_ = 0;
-  length_ = GOOGLE_ULONGLONG(0);
-  msgblock_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-avPacketMessage::~avPacketMessage() {
-  SharedDtor();
-}
-
-void avPacketMessage::SharedDtor() {
-  if (msgblock_ != &::google::protobuf::internal::kEmptyString) {
-    delete msgblock_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void avPacketMessage::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* avPacketMessage::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return avPacketMessage_descriptor_;
-}
-
-const avPacketMessage& avPacketMessage::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_avim_2dbase_2eproto();
-  return *default_instance_;
-}
-
-avPacketMessage* avPacketMessage::default_instance_ = NULL;
-
-avPacketMessage* avPacketMessage::New() const {
-  return new avPacketMessage;
-}
-
-void avPacketMessage::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    length_ = GOOGLE_ULONGLONG(0);
-    if (has_msgblock()) {
-      if (msgblock_ != &::google::protobuf::internal::kEmptyString) {
-        msgblock_->clear();
-      }
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool avPacketMessage::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint64 length = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &length_)));
-          set_has_length();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_msgblock;
-        break;
-      }
-
-      // optional bytes msgblock = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_msgblock:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_msgblock()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void avPacketMessage::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required uint64 length = 1;
-  if (has_length()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->length(), output);
-  }
-
-  // optional bytes msgblock = 2;
-  if (has_msgblock()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      2, this->msgblock(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* avPacketMessage::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required uint64 length = 1;
-  if (has_length()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->length(), target);
-  }
-
-  // optional bytes msgblock = 2;
-  if (has_msgblock()) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        2, this->msgblock(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int avPacketMessage::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint64 length = 1;
-    if (has_length()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->length());
-    }
-
-    // optional bytes msgblock = 2;
-    if (has_msgblock()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->msgblock());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void avPacketMessage::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const avPacketMessage* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const avPacketMessage*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void avPacketMessage::MergeFrom(const avPacketMessage& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_length()) {
-      set_length(from.length());
-    }
-    if (from.has_msgblock()) {
-      set_msgblock(from.msgblock());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void avPacketMessage::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void avPacketMessage::CopyFrom(const avPacketMessage& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool avPacketMessage::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
-
-  return true;
-}
-
-void avPacketMessage::Swap(avPacketMessage* other) {
-  if (other != this) {
-    std::swap(length_, other->length_);
-    std::swap(msgblock_, other->msgblock_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata avPacketMessage::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = avPacketMessage_descriptor_;
-  metadata.reflection = avPacketMessage_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-const ::google::protobuf::EnumDescriptor* avPacketMessageReplay_Status_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return avPacketMessageReplay_Status_descriptor_;
-}
-bool avPacketMessageReplay_Status_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#ifndef _MSC_VER
-const avPacketMessageReplay_Status avPacketMessageReplay::DELIVERED;
-const avPacketMessageReplay_Status avPacketMessageReplay::SUCCESS;
-const avPacketMessageReplay_Status avPacketMessageReplay::FAILED;
-const avPacketMessageReplay_Status avPacketMessageReplay::SUCCESS_OFFLINED;
-const avPacketMessageReplay_Status avPacketMessageReplay::MULTIADDREDD_STATUS_ATTACHED;
-const avPacketMessageReplay_Status avPacketMessageReplay::Status_MIN;
-const avPacketMessageReplay_Status avPacketMessageReplay::Status_MAX;
-const int avPacketMessageReplay::Status_ARRAYSIZE;
-#endif  // _MSC_VER
-#ifndef _MSC_VER
-const int avPacketMessageReplay_MultiStatus::kStatusFieldNumber;
-const int avPacketMessageReplay_MultiStatus::kAvidFieldNumber;
-#endif  // !_MSC_VER
-
-avPacketMessageReplay_MultiStatus::avPacketMessageReplay_MultiStatus()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void avPacketMessageReplay_MultiStatus::InitAsDefaultInstance() {
-  avid_ = const_cast< ::avim::proto::base::avID*>(&::avim::proto::base::avID::default_instance());
-}
-
-avPacketMessageReplay_MultiStatus::avPacketMessageReplay_MultiStatus(const avPacketMessageReplay_MultiStatus& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void avPacketMessageReplay_MultiStatus::SharedCtor() {
-  _cached_size_ = 0;
-  status_ = 0;
-  avid_ = NULL;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-avPacketMessageReplay_MultiStatus::~avPacketMessageReplay_MultiStatus() {
-  SharedDtor();
-}
-
-void avPacketMessageReplay_MultiStatus::SharedDtor() {
-  if (this != default_instance_) {
-    delete avid_;
-  }
-}
-
-void avPacketMessageReplay_MultiStatus::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* avPacketMessageReplay_MultiStatus::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return avPacketMessageReplay_MultiStatus_descriptor_;
-}
-
-const avPacketMessageReplay_MultiStatus& avPacketMessageReplay_MultiStatus::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_avim_2dbase_2eproto();
-  return *default_instance_;
-}
-
-avPacketMessageReplay_MultiStatus* avPacketMessageReplay_MultiStatus::default_instance_ = NULL;
-
-avPacketMessageReplay_MultiStatus* avPacketMessageReplay_MultiStatus::New() const {
-  return new avPacketMessageReplay_MultiStatus;
-}
-
-void avPacketMessageReplay_MultiStatus::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    status_ = 0;
-    if (has_avid()) {
-      if (avid_ != NULL) avid_->::avim::proto::base::avID::Clear();
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool avPacketMessageReplay_MultiStatus::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::avim::proto::base::avPacketMessageReplay_Status_IsValid(value)) {
-            set_status(static_cast< ::avim::proto::base::avPacketMessageReplay_Status >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_avid;
-        break;
-      }
-
-      // required .avim.proto.base.avID avid = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_avid:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_avid()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void avPacketMessageReplay_MultiStatus::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-  if (has_status()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->status(), output);
-  }
-
-  // required .avim.proto.base.avID avid = 2;
-  if (has_avid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->avid(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* avPacketMessageReplay_MultiStatus::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-  if (has_status()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->status(), target);
-  }
-
-  // required .avim.proto.base.avID avid = 2;
-  if (has_avid()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->avid(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int avPacketMessageReplay_MultiStatus::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-    if (has_status()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->status());
-    }
-
-    // required .avim.proto.base.avID avid = 2;
-    if (has_avid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->avid());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void avPacketMessageReplay_MultiStatus::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const avPacketMessageReplay_MultiStatus* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const avPacketMessageReplay_MultiStatus*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void avPacketMessageReplay_MultiStatus::MergeFrom(const avPacketMessageReplay_MultiStatus& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_status()) {
-      set_status(from.status());
-    }
-    if (from.has_avid()) {
-      mutable_avid()->::avim::proto::base::avID::MergeFrom(from.avid());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void avPacketMessageReplay_MultiStatus::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void avPacketMessageReplay_MultiStatus::CopyFrom(const avPacketMessageReplay_MultiStatus& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool avPacketMessageReplay_MultiStatus::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
-
-  if (has_avid()) {
-    if (!this->avid().IsInitialized()) return false;
-  }
-  return true;
-}
-
-void avPacketMessageReplay_MultiStatus::Swap(avPacketMessageReplay_MultiStatus* other) {
-  if (other != this) {
-    std::swap(status_, other->status_);
-    std::swap(avid_, other->avid_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata avPacketMessageReplay_MultiStatus::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = avPacketMessageReplay_MultiStatus_descriptor_;
-  metadata.reflection = avPacketMessageReplay_MultiStatus_reflection_;
-  return metadata;
-}
-
-
-// -------------------------------------------------------------------
-
-#ifndef _MSC_VER
-const int avPacketMessageReplay::kStatusFieldNumber;
-const int avPacketMessageReplay::kMultistatusFieldNumber;
-#endif  // !_MSC_VER
-
-avPacketMessageReplay::avPacketMessageReplay()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void avPacketMessageReplay::InitAsDefaultInstance() {
-  multistatus_ = const_cast< ::avim::proto::base::avPacketMessageReplay_MultiStatus*>(&::avim::proto::base::avPacketMessageReplay_MultiStatus::default_instance());
-}
-
-avPacketMessageReplay::avPacketMessageReplay(const avPacketMessageReplay& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void avPacketMessageReplay::SharedCtor() {
-  _cached_size_ = 0;
-  status_ = 0;
-  multistatus_ = NULL;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-avPacketMessageReplay::~avPacketMessageReplay() {
-  SharedDtor();
-}
-
-void avPacketMessageReplay::SharedDtor() {
-  if (this != default_instance_) {
-    delete multistatus_;
-  }
-}
-
-void avPacketMessageReplay::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* avPacketMessageReplay::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return avPacketMessageReplay_descriptor_;
-}
-
-const avPacketMessageReplay& avPacketMessageReplay::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_avim_2dbase_2eproto();
-  return *default_instance_;
-}
-
-avPacketMessageReplay* avPacketMessageReplay::default_instance_ = NULL;
-
-avPacketMessageReplay* avPacketMessageReplay::New() const {
-  return new avPacketMessageReplay;
-}
-
-void avPacketMessageReplay::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    status_ = 0;
-    if (has_multistatus()) {
-      if (multistatus_ != NULL) multistatus_->::avim::proto::base::avPacketMessageReplay_MultiStatus::Clear();
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool avPacketMessageReplay::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::avim::proto::base::avPacketMessageReplay_Status_IsValid(value)) {
-            set_status(static_cast< ::avim::proto::base::avPacketMessageReplay_Status >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_multistatus;
-        break;
-      }
-
-      // optional .avim.proto.base.avPacketMessageReplay.MultiStatus multistatus = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_multistatus:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_multistatus()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void avPacketMessageReplay::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-  if (has_status()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->status(), output);
-  }
-
-  // optional .avim.proto.base.avPacketMessageReplay.MultiStatus multistatus = 2;
-  if (has_multistatus()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->multistatus(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* avPacketMessageReplay::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-  if (has_status()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->status(), target);
-  }
-
-  // optional .avim.proto.base.avPacketMessageReplay.MultiStatus multistatus = 2;
-  if (has_multistatus()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->multistatus(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int avPacketMessageReplay::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .avim.proto.base.avPacketMessageReplay.Status status = 1;
-    if (has_status()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->status());
-    }
-
-    // optional .avim.proto.base.avPacketMessageReplay.MultiStatus multistatus = 2;
-    if (has_multistatus()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->multistatus());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void avPacketMessageReplay::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const avPacketMessageReplay* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const avPacketMessageReplay*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void avPacketMessageReplay::MergeFrom(const avPacketMessageReplay& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_status()) {
-      set_status(from.status());
-    }
-    if (from.has_multistatus()) {
-      mutable_multistatus()->::avim::proto::base::avPacketMessageReplay_MultiStatus::MergeFrom(from.multistatus());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void avPacketMessageReplay::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void avPacketMessageReplay::CopyFrom(const avPacketMessageReplay& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool avPacketMessageReplay::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
-
-  if (has_multistatus()) {
-    if (!this->multistatus().IsInitialized()) return false;
-  }
-  return true;
-}
-
-void avPacketMessageReplay::Swap(avPacketMessageReplay* other) {
-  if (other != this) {
-    std::swap(status_, other->status_);
-    std::swap(multistatus_, other->multistatus_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata avPacketMessageReplay::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = avPacketMessageReplay_descriptor_;
-  metadata.reflection = avPacketMessageReplay_reflection_;
+  metadata.descriptor = avPacket_descriptor_;
+  metadata.reflection = avPacket_reflection_;
   return metadata;
 }
 
