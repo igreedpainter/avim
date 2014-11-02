@@ -4,7 +4,7 @@ project(avim)
 
 option(RUN_PROTOC "run protoc to generate protobuf protocol parser" OFF)
 
-find_package(Boost 1.48 REQUIRED thread system)
+find_package(Boost 1.54 REQUIRED thread system coroutine context)
 find_package(Protobuf REQUIRED)
 
 include_directories(${PROTOBUF_INCLUDE_DIRS})
@@ -22,4 +22,4 @@ add_subdirectory(protocol)
 add_subdirectory(libavproto)
 link_libraries(avprotocol)
 
-add_executable(avrouter main.cpp)
+add_executable(avrouter router.cpp)
