@@ -1,4 +1,3 @@
 [Project]
-Name=avim
 Manager=KDevCMakeManager
-VersionControl=kdevgit
+Name=avim
