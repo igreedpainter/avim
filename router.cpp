@@ -12,6 +12,8 @@
 
 static boost::asio::io_service io_service;
 
+avkernel avcore(io_service);
+
 // 路由器接受用户地址后，每次都生成一个新的随机地址的
 static std::string  get_new_radom_address()
 {
@@ -20,10 +22,7 @@ static std::string  get_new_radom_address()
 	return boost::str( boost::format("avrouter_%1@avplayer.org") % t ++ );
 }
 
-// 处理客户端，现在 暂时不处理登录，直接接受
-// TODO, 修正 tcp 模式的登录协议
-// TODO, 登录过程要交换证书
-// TODO  服务器要验证客户端正式确实来自 avplayer.org 签发
+// 处理客户端
 static void process_client(boost::asio::yield_context yielder, boost::shared_ptr<boost::asio::ip::tcp::socket> client_sock)
 {
 	boost::system::error_code ec;
@@ -41,10 +40,10 @@ static void process_client(boost::asio::yield_context yielder, boost::shared_ptr
 
 	avinterface->async_master_handshake(1, yielder[ec]);
 
-	av_if_handover(avinterface);
+	avcore.add_interface(avinterface);
 
 	// 添加路由表
-	av_route(AVROUTE_ADD, avinterface->remote_addr(), me_addr, avinterface->get_ifname());
+	avcore.add_route(avinterface->remote_addr(), me_addr, avinterface->get_ifname());
 }
 
 static void async_acceptor(boost::asio::yield_context yielder, int port)
@@ -66,8 +65,6 @@ static void async_acceptor(boost::asio::yield_context yielder, int port)
 
 int main()
 {
-	av_start(&io_service);
-
 	int port = 24950; // "av" = 0x6176 = 24950
 	// 开启 av协议处理
 

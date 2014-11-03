@@ -17,11 +17,10 @@
 
 static boost::asio::io_service io_service;
 
+avkernel avcore(io_service);
 
 int main(int argv, char * argc[])
 {
-	av_start(&io_service);
-
 	// TODO, 从 文件加载 RSA key
 	// TODO, 加载 ~/.avim/id_rsa.key 和 ~/.avim/id_rsa.cert
 	RSA * rsa_key = NULL;
@@ -49,13 +48,13 @@ int main(int argv, char * argc[])
 
 	avinterface->slave_handshake(0);
 
-	av_if_handover(avinterface);
+	avcore.add_interface(avinterface);
 
 	// 添加路由表
-	av_route(AVROUTE_ADD, "*", me_addr, avinterface->get_ifname());
+	avcore.add_route(".+@.+", me_addr, avinterface->get_ifname());
 
 	// 进入 IM 过程，发送一个 test  到 test2@avplayer.org
-	av_sendto("test2@avplayer.org", "test");
+	avcore.sendto("test2@avplayer.org", "test");
 
 	io_service.run();
 }
