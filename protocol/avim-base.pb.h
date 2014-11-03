@@ -230,17 +230,17 @@ class avPacket : public ::google::protobuf::Message {
   inline ::proto::base::avAddress* release_dest();
   inline void set_allocated_dest(::proto::base::avAddress* dest);
 
-  // required bytes figurprint = 3;
-  inline bool has_figurprint() const;
-  inline void clear_figurprint();
-  static const int kFigurprintFieldNumber = 3;
-  inline const ::std::string& figurprint() const;
-  inline void set_figurprint(const ::std::string& value);
-  inline void set_figurprint(const char* value);
-  inline void set_figurprint(const void* value, size_t size);
-  inline ::std::string* mutable_figurprint();
-  inline ::std::string* release_figurprint();
-  inline void set_allocated_figurprint(::std::string* figurprint);
+  // optional bytes publickey = 3;
+  inline bool has_publickey() const;
+  inline void clear_publickey();
+  static const int kPublickeyFieldNumber = 3;
+  inline const ::std::string& publickey() const;
+  inline void set_publickey(const ::std::string& value);
+  inline void set_publickey(const char* value);
+  inline void set_publickey(const void* value, size_t size);
+  inline ::std::string* mutable_publickey();
+  inline ::std::string* release_publickey();
+  inline void set_allocated_publickey(::std::string* publickey);
 
   // required string upperlayerpotocol = 6 [default = "avim"];
   inline bool has_upperlayerpotocol() const;
@@ -254,7 +254,7 @@ class avPacket : public ::google::protobuf::Message {
   inline ::std::string* release_upperlayerpotocol();
   inline void set_allocated_upperlayerpotocol(::std::string* upperlayerpotocol);
 
-  // optional uint32 encrype_method = 7;
+  // optional uint32 encrype_method = 7 [default = 0];
   inline bool has_encrype_method() const;
   inline void clear_encrype_method();
   static const int kEncrypeMethodFieldNumber = 7;
@@ -279,8 +279,8 @@ class avPacket : public ::google::protobuf::Message {
   inline void clear_has_src();
   inline void set_has_dest();
   inline void clear_has_dest();
-  inline void set_has_figurprint();
-  inline void clear_has_figurprint();
+  inline void set_has_publickey();
+  inline void clear_has_publickey();
   inline void set_has_upperlayerpotocol();
   inline void clear_has_upperlayerpotocol();
   inline void set_has_encrype_method();
@@ -292,7 +292,7 @@ class avPacket : public ::google::protobuf::Message {
 
   ::proto::base::avAddress* src_;
   ::proto::base::avAddress* dest_;
-  ::std::string* figurprint_;
+  ::std::string* publickey_;
   ::std::string* upperlayerpotocol_;
   static ::std::string* _default_upperlayerpotocol_;
   ::std::string* payload_;
@@ -798,73 +798,73 @@ inline void avPacket::set_allocated_dest(::proto::base::avAddress* dest) {
   }
 }
 
-// required bytes figurprint = 3;
-inline bool avPacket::has_figurprint() const {
+// optional bytes publickey = 3;
+inline bool avPacket::has_publickey() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void avPacket::set_has_figurprint() {
+inline void avPacket::set_has_publickey() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void avPacket::clear_has_figurprint() {
+inline void avPacket::clear_has_publickey() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void avPacket::clear_figurprint() {
-  if (figurprint_ != &::google::protobuf::internal::kEmptyString) {
-    figurprint_->clear();
+inline void avPacket::clear_publickey() {
+  if (publickey_ != &::google::protobuf::internal::kEmptyString) {
+    publickey_->clear();
   }
-  clear_has_figurprint();
+  clear_has_publickey();
 }
-inline const ::std::string& avPacket::figurprint() const {
-  return *figurprint_;
+inline const ::std::string& avPacket::publickey() const {
+  return *publickey_;
 }
-inline void avPacket::set_figurprint(const ::std::string& value) {
-  set_has_figurprint();
-  if (figurprint_ == &::google::protobuf::internal::kEmptyString) {
-    figurprint_ = new ::std::string;
+inline void avPacket::set_publickey(const ::std::string& value) {
+  set_has_publickey();
+  if (publickey_ == &::google::protobuf::internal::kEmptyString) {
+    publickey_ = new ::std::string;
   }
-  figurprint_->assign(value);
+  publickey_->assign(value);
 }
-inline void avPacket::set_figurprint(const char* value) {
-  set_has_figurprint();
-  if (figurprint_ == &::google::protobuf::internal::kEmptyString) {
-    figurprint_ = new ::std::string;
+inline void avPacket::set_publickey(const char* value) {
+  set_has_publickey();
+  if (publickey_ == &::google::protobuf::internal::kEmptyString) {
+    publickey_ = new ::std::string;
   }
-  figurprint_->assign(value);
+  publickey_->assign(value);
 }
-inline void avPacket::set_figurprint(const void* value, size_t size) {
-  set_has_figurprint();
-  if (figurprint_ == &::google::protobuf::internal::kEmptyString) {
-    figurprint_ = new ::std::string;
+inline void avPacket::set_publickey(const void* value, size_t size) {
+  set_has_publickey();
+  if (publickey_ == &::google::protobuf::internal::kEmptyString) {
+    publickey_ = new ::std::string;
   }
-  figurprint_->assign(reinterpret_cast<const char*>(value), size);
+  publickey_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* avPacket::mutable_figurprint() {
-  set_has_figurprint();
-  if (figurprint_ == &::google::protobuf::internal::kEmptyString) {
-    figurprint_ = new ::std::string;
+inline ::std::string* avPacket::mutable_publickey() {
+  set_has_publickey();
+  if (publickey_ == &::google::protobuf::internal::kEmptyString) {
+    publickey_ = new ::std::string;
   }
-  return figurprint_;
+  return publickey_;
 }
-inline ::std::string* avPacket::release_figurprint() {
-  clear_has_figurprint();
-  if (figurprint_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* avPacket::release_publickey() {
+  clear_has_publickey();
+  if (publickey_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = figurprint_;
-    figurprint_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = publickey_;
+    publickey_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void avPacket::set_allocated_figurprint(::std::string* figurprint) {
-  if (figurprint_ != &::google::protobuf::internal::kEmptyString) {
-    delete figurprint_;
+inline void avPacket::set_allocated_publickey(::std::string* publickey) {
+  if (publickey_ != &::google::protobuf::internal::kEmptyString) {
+    delete publickey_;
   }
-  if (figurprint) {
-    set_has_figurprint();
-    figurprint_ = figurprint;
+  if (publickey) {
+    set_has_publickey();
+    publickey_ = publickey;
   } else {
-    clear_has_figurprint();
-    figurprint_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_publickey();
+    publickey_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
@@ -938,7 +938,7 @@ inline void avPacket::set_allocated_upperlayerpotocol(::std::string* upperlayerp
   }
 }
 
-// optional uint32 encrype_method = 7;
+// optional uint32 encrype_method = 7 [default = 0];
 inline bool avPacket::has_encrype_method() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }

@@ -131,6 +131,8 @@ int main()
 
 	BIO_free(keyfile);
 
+	int s = RSA_size(priv);
+
 	boost::asio::spawn(io_service, boost::bind(&async_acceptor, _1, port, priv));
 
 	// 无限睡眠，客户端的话就开始写客户端的逻辑吧

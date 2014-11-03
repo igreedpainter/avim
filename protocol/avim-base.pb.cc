@@ -64,7 +64,7 @@ void protobuf_AssignDesc_avim_2dbase_2eproto() {
   static const int avPacket_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, src_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, dest_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, figurprint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, publickey_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, upperlayerpotocol_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, encrype_method_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(avPacket, payload_),
@@ -157,15 +157,15 @@ void protobuf_AddDesc_avim_2dbase_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\017avim-base.proto\022\nproto.base\"\?\n\tavAddre"
     "ss\022\020\n\010username\030\001 \002(\t\022\016\n\006domain\030\002 \002(\t\022\020\n\010"
-    "resource\030\003 \001(\t\"\261\001\n\010avPacket\022\"\n\003src\030\001 \002(\013"
+    "resource\030\003 \001(\t\"\263\001\n\010avPacket\022\"\n\003src\030\001 \002(\013"
     "2\025.proto.base.avAddress\022#\n\004dest\030\002 \002(\0132\025."
-    "proto.base.avAddress\022\022\n\nfigurprint\030\003 \002(\014"
-    "\022\037\n\021upperlayerpotocol\030\006 \002(\t:\004avim\022\026\n\016enc"
-    "rype_method\030\007 \001(\r\022\017\n\007payload\030\010 \001(\014\"\006\n\004aG"
-    "MP\"\213\001\n\013avTCPPacket\022\014\n\004type\030\001 \002(\r\022&\n\010avpa"
-    "cket\030\002 \001(\0132\024.proto.base.avPacket\022/\n\020endp"
-    "oint_address\030\003 \001(\0132\025.proto.base.avAddres"
-    "s\022\025\n\rendpoint_cert\030\004 \001(\014", 424);
+    "proto.base.avAddress\022\021\n\tpublickey\030\003 \001(\014\022"
+    "\037\n\021upperlayerpotocol\030\006 \002(\t:\004avim\022\031\n\016encr"
+    "ype_method\030\007 \001(\r:\0010\022\017\n\007payload\030\010 \001(\014\"\006\n\004"
+    "aGMP\"\213\001\n\013avTCPPacket\022\014\n\004type\030\001 \002(\r\022&\n\010av"
+    "packet\030\002 \001(\0132\024.proto.base.avPacket\022/\n\020en"
+    "dpoint_address\030\003 \001(\0132\025.proto.base.avAddr"
+    "ess\022\025\n\rendpoint_cert\030\004 \001(\014", 426);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "avim-base.proto", &protobuf_RegisterTypes);
   avAddress::default_instance_ = new avAddress();
@@ -534,7 +534,7 @@ void avAddress::Swap(avAddress* other) {
 #ifndef _MSC_VER
 const int avPacket::kSrcFieldNumber;
 const int avPacket::kDestFieldNumber;
-const int avPacket::kFigurprintFieldNumber;
+const int avPacket::kPublickeyFieldNumber;
 const int avPacket::kUpperlayerpotocolFieldNumber;
 const int avPacket::kEncrypeMethodFieldNumber;
 const int avPacket::kPayloadFieldNumber;
@@ -560,7 +560,7 @@ void avPacket::SharedCtor() {
   _cached_size_ = 0;
   src_ = NULL;
   dest_ = NULL;
-  figurprint_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  publickey_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   upperlayerpotocol_ = const_cast< ::std::string*>(_default_upperlayerpotocol_);
   encrype_method_ = 0u;
   payload_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -572,8 +572,8 @@ avPacket::~avPacket() {
 }
 
 void avPacket::SharedDtor() {
-  if (figurprint_ != &::google::protobuf::internal::kEmptyString) {
-    delete figurprint_;
+  if (publickey_ != &::google::protobuf::internal::kEmptyString) {
+    delete publickey_;
   }
   if (upperlayerpotocol_ != _default_upperlayerpotocol_) {
     delete upperlayerpotocol_;
@@ -616,9 +616,9 @@ void avPacket::Clear() {
     if (has_dest()) {
       if (dest_ != NULL) dest_->::proto::base::avAddress::Clear();
     }
-    if (has_figurprint()) {
-      if (figurprint_ != &::google::protobuf::internal::kEmptyString) {
-        figurprint_->clear();
+    if (has_publickey()) {
+      if (publickey_ != &::google::protobuf::internal::kEmptyString) {
+        publickey_->clear();
       }
     }
     if (has_upperlayerpotocol()) {
@@ -666,17 +666,17 @@ bool avPacket::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_figurprint;
+        if (input->ExpectTag(26)) goto parse_publickey;
         break;
       }
 
-      // required bytes figurprint = 3;
+      // optional bytes publickey = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_figurprint:
+         parse_publickey:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_figurprint()));
+                input, this->mutable_publickey()));
         } else {
           goto handle_uninterpreted;
         }
@@ -701,7 +701,7 @@ bool avPacket::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 encrype_method = 7;
+      // optional uint32 encrype_method = 7 [default = 0];
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -761,10 +761,10 @@ void avPacket::SerializeWithCachedSizes(
       2, this->dest(), output);
   }
 
-  // required bytes figurprint = 3;
-  if (has_figurprint()) {
+  // optional bytes publickey = 3;
+  if (has_publickey()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->figurprint(), output);
+      3, this->publickey(), output);
   }
 
   // required string upperlayerpotocol = 6 [default = "avim"];
@@ -776,7 +776,7 @@ void avPacket::SerializeWithCachedSizes(
       6, this->upperlayerpotocol(), output);
   }
 
-  // optional uint32 encrype_method = 7;
+  // optional uint32 encrype_method = 7 [default = 0];
   if (has_encrype_method()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->encrype_method(), output);
   }
@@ -809,11 +809,11 @@ void avPacket::SerializeWithCachedSizes(
         2, this->dest(), target);
   }
 
-  // required bytes figurprint = 3;
-  if (has_figurprint()) {
+  // optional bytes publickey = 3;
+  if (has_publickey()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->figurprint(), target);
+        3, this->publickey(), target);
   }
 
   // required string upperlayerpotocol = 6 [default = "avim"];
@@ -826,7 +826,7 @@ void avPacket::SerializeWithCachedSizes(
         6, this->upperlayerpotocol(), target);
   }
 
-  // optional uint32 encrype_method = 7;
+  // optional uint32 encrype_method = 7 [default = 0];
   if (has_encrype_method()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->encrype_method(), target);
   }
@@ -863,11 +863,11 @@ int avPacket::ByteSize() const {
           this->dest());
     }
 
-    // required bytes figurprint = 3;
-    if (has_figurprint()) {
+    // optional bytes publickey = 3;
+    if (has_publickey()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->figurprint());
+          this->publickey());
     }
 
     // required string upperlayerpotocol = 6 [default = "avim"];
@@ -877,7 +877,7 @@ int avPacket::ByteSize() const {
           this->upperlayerpotocol());
     }
 
-    // optional uint32 encrype_method = 7;
+    // optional uint32 encrype_method = 7 [default = 0];
     if (has_encrype_method()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
@@ -924,8 +924,8 @@ void avPacket::MergeFrom(const avPacket& from) {
     if (from.has_dest()) {
       mutable_dest()->::proto::base::avAddress::MergeFrom(from.dest());
     }
-    if (from.has_figurprint()) {
-      set_figurprint(from.figurprint());
+    if (from.has_publickey()) {
+      set_publickey(from.publickey());
     }
     if (from.has_upperlayerpotocol()) {
       set_upperlayerpotocol(from.upperlayerpotocol());
@@ -953,7 +953,7 @@ void avPacket::CopyFrom(const avPacket& from) {
 }
 
 bool avPacket::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
 
   if (has_src()) {
     if (!this->src().IsInitialized()) return false;
@@ -968,7 +968,7 @@ void avPacket::Swap(avPacket* other) {
   if (other != this) {
     std::swap(src_, other->src_);
     std::swap(dest_, other->dest_);
-    std::swap(figurprint_, other->figurprint_);
+    std::swap(publickey_, other->publickey_);
     std::swap(upperlayerpotocol_, other->upperlayerpotocol_);
     std::swap(encrype_method_, other->encrype_method_);
     std::swap(payload_, other->payload_);
