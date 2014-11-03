@@ -11,10 +11,10 @@ message avAddress{
 
 // 这个就是基础包， av们相互通信使用的就是这个
 message avPacket{
-	required uint32 encrype_method = 1; // 加密类型， 目前就定义了 0 表示， RSA 加密。必须是对称体系
+	required uint32 encrype_method = 1 ; // 加密类型， 目前就定义了 0 表示， RSA 加密。必须是对称体系
 	required avAddress src = 2; // 发送方地址
-	required bytes figurprint = 3 ; // 客户端指纹
 	required avAddress dest = 4; // 目的地地址
+	required bytes figurprint = 3 ; // 客户端指纹
 	required string upperlayerpotocol = 5 [ default = "avim" ] ; // 表明上层软件是何种协议。
 
 	required uint64 payload_length = 6; // 消息长度
@@ -23,5 +23,11 @@ message avPacket{
 	required bytes message_sign = 8; // 使用 src 的私钥给出的消息签名
 }
 
+// avnet Group Message Protocol, 类似 IGMP 消息在 IP 网中的作用
+// 主要作用为证书的传递
+// 在 avPacket::upperlayerpotocol 里这个协议是 "agmp"
+message aGMP {
 
+
+}
 
