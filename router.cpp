@@ -48,7 +48,7 @@ static void process_client(boost::asio::yield_context yielder, boost::shared_ptr
 		return;
 
 	// 创建一个 tcp 的 avif 设备，然后添加进去, TODO, 证书也应该传进去
-	boost::shared_ptr<avif> avinterface;
+	boost::shared_ptr<avtcpif> avinterface;
 
 	avinterface.reset(new avtcpif(client_sock, me_addr, useraddr) );
 
