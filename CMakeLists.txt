@@ -5,7 +5,7 @@ project(avim)
 option(RUN_PROTOC "run protoc to generate protobuf protocol parser" OFF)
 
 find_package(Threads REQUIRED)
-find_package(Boost 1.54 REQUIRED thread system coroutine context)
+find_package(Boost 1.54 REQUIRED thread system coroutine context regex)
 find_package(Protobuf REQUIRED)
 
 include_directories(${PROTOBUF_INCLUDE_DIRS})
