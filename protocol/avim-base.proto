@@ -11,23 +11,35 @@ message avAddress{
 
 // 这个就是基础包， av们相互通信使用的就是这个
 message avPacket{
-	required uint32 encrype_method = 1 ; // 加密类型， 目前就定义了 0 表示， RSA 加密。必须是对称体系
-	required avAddress src = 2; // 发送方地址
-	required avAddress dest = 4; // 目的地地址
+	required avAddress src = 1; // 发送方地址
+	required avAddress dest = 2; // 目的地地址
 	required bytes figurprint = 3 ; // 客户端指纹
-	required string upperlayerpotocol = 5 [ default = "avim" ] ; // 表明上层软件是何种协议。
+	required string upperlayerpotocol = 6 [ default = "avim" ] ; // 表明上层软件是何种协议。
+	optional uint32 encrype_method = 7 ; // 加密类型， 目前就定义了 0 表示， RSA 加密。必须是对称体系
 
-	required uint64 payload_length = 6; // 消息长度
-	optional bytes payload = 7; // 消息长度 > 0 的时候就有这个消息了
+	// 可选的消息内容, 消息一定是用 src 的私钥加密的，因此必须首先用 src 的公钥解密
+	// 解密后的消息，还得必须再次用 dest 的 私钥解密。但是对于一些特定的消息，
+	// 因为 src 并不知道 dest 的公钥，所以可能用 src 的公钥解密后就是名文了。
+	// 通常这个特定的消息就是 src 向 dest 发送消息，而 dest 不曾向 src 发送过任何消息，因此需要询问dest公钥
+	// 只有这个消息是未经过 dest 加密的。这个消息，upperlayerpotocol 一定是 pkask， 当然，消息内容是空的。。。
+	// dest 会回复一个 pkreply 消息。这个消息也是加密的
 
-	required bytes message_sign = 8; // 使用 src 的私钥给出的消息签名
+	optional bytes payload = 8;
 }
 
 // avnet Group Message Protocol, 类似 IGMP 消息在 IP 网中的作用
-// 主要作用为证书的传递
+// 主要作用为证书的传递，注意，单纯的询问 工钥，使用 pkask 消息
 // 在 avPacket::upperlayerpotocol 里这个协议是 "agmp"
 message aGMP {
 
 
 }
 
+// 这个是在 TCP 链路上传输的包格式
+message avTCPPacket{
+	required uint32 type = 1; // 0 = avpakcet, 1 = hello
+	optional avPacket avpacket = 2;
+
+	optional avAddress endpoint_address = 3;
+	optional bytes endpoint_cert = 4;
+};

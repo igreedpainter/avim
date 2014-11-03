@@ -10,6 +10,9 @@
 #include <avtcpif.hpp>
 #include <avproto.hpp>
 
+#include <openssl/x509.h>
+#include <openssl/pem.h>
+
 // 一个非常非常简单的 IM 实现，测试用途
 
 static boost::asio::io_service io_service;
@@ -20,7 +23,10 @@ int main(int argv, char * argc[])
 	av_start(&io_service);
 
 	// TODO, 从 文件加载 RSA key
+	// TODO, 加载 ~/.avim/id_rsa.key 和 ~/.avim/id_rsa.cert
 	RSA * rsa_key = NULL;
+	X509 * x509_cert = NULL;
+
 
 	// 连接到 im.avplayer.org:24950
 
@@ -39,7 +45,7 @@ int main(int argv, char * argc[])
 	// 创建一个 tcp 的 avif 设备，然后添加进去, TODO, 证书也应该传进去
 	boost::shared_ptr<avtcpif> avinterface;
 
-	avinterface.reset(new avtcpif(avserver, me_addr, rsa_key) );
+	avinterface.reset(new avtcpif(avserver, me_addr, rsa_key, x509_cert) );
 
 	avinterface->slave_handshake(0);
 
