@@ -7,7 +7,7 @@
 #include <boost/asio/spawn.hpp>
 #include <boost/make_shared.hpp>
 
-#include <avif.hpp>
+#include <avtcpif.hpp>
 #include <avproto.hpp>
 
 static boost::asio::io_service io_service;
@@ -26,36 +26,25 @@ static std::string  get_new_radom_address()
 // TODO  服务器要验证客户端正式确实来自 avplayer.org 签发
 static void process_client(boost::asio::yield_context yielder, boost::shared_ptr<boost::asio::ip::tcp::socket> client_sock)
 {
-	boost::asio::streambuf buf;
 	boost::system::error_code ec;
 
-	// 接收用户的 av地址
-	int len = boost::asio::async_read_until(*client_sock, buf, "\r\n", yielder[ec]);
-
-	if( ec)
-		return;
-
-	std::string useraddr; useraddr.resize(len);
-
-	buf.sgetn(&useraddr[0], len);
+	// TODO rsa key 加载
+	RSA * rsa_key = NULL; // RSA_new();
 
 	// 生成一个新的 av地址
 	std::string me_addr = get_new_radom_address();
 
-	// 返回服务器地址
-	boost::asio::async_write(*client_sock, boost::asio::buffer(me_addr), yielder[ec]);
-	if( ec )
-		return;
-
 	// 创建一个 tcp 的 avif 设备，然后添加进去, TODO, 证书也应该传进去
 	boost::shared_ptr<avtcpif> avinterface;
 
-	avinterface.reset(new avtcpif(client_sock, me_addr, useraddr) );
+	avinterface.reset(new avtcpif(client_sock, me_addr, rsa_key) );
+
+	avinterface->async_master_handshake(1, yielder[ec]);
 
 	av_if_handover(avinterface);
 
 	// 添加路由表
-	av_route(AVROUTE_ADD, useraddr, me_addr, avinterface->get_ifname());
+	av_route(AVROUTE_ADD, avinterface->remote_addr(), me_addr, avinterface->get_ifname());
 }
 
 static void async_acceptor(boost::asio::yield_context yielder, int port)

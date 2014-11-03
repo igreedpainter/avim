@@ -7,7 +7,7 @@
 #include <boost/asio/spawn.hpp>
 #include <boost/make_shared.hpp>
 
-#include <avif.hpp>
+#include <avtcpif.hpp>
 #include <avproto.hpp>
 
 // 一个非常非常简单的 IM 实现，测试用途
@@ -18,6 +18,9 @@ static boost::asio::io_service io_service;
 int main(int argv, char * argc[])
 {
 	av_start(&io_service);
+
+	// TODO, 从 文件加载 RSA key
+	RSA * rsa_key = NULL;
 
 	// 连接到 im.avplayer.org:24950
 
@@ -31,21 +34,14 @@ int main(int argv, char * argc[])
 	// TODO 修正登录过程
 
 	std::string me_addr = "test@avplayer.org";
-	boost::asio::write(*avserver, boost::asio::buffer(me_addr));
 
-	std::string serveraddr;
-
-	boost::asio::streambuf buf;
-
-	int len = boost::asio::read_until(*avserver, buf, "\r\n");
-	serveraddr.resize(len);
-
-	buf.sgetn(&serveraddr[0], len);
 	// 构造 avtcpif
 	// 创建一个 tcp 的 avif 设备，然后添加进去, TODO, 证书也应该传进去
 	boost::shared_ptr<avtcpif> avinterface;
 
-	avinterface.reset(new avtcpif(avserver, me_addr, serveraddr) );
+	avinterface.reset(new avtcpif(avserver, me_addr, rsa_key) );
+
+	avinterface->slave_handshake(0);
 
 	av_if_handover(avinterface);
 
