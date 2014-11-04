@@ -1,5 +1,6 @@
 
 #include <string>
+#include <iostream>
 #include <boost/format.hpp>
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
@@ -25,8 +26,9 @@ static void msg_reader(boost::asio::yield_context yield_context)
 
 	for(;;)
 	{
+		avcore.async_recvfrom(sender, data, yield_context);
 
-		// avcore.async_recvfrom(sender, data, yield_context);
+		std::cerr << "接收到的数据： " << data << std::endl;
 	}
 }
 
@@ -70,7 +72,7 @@ int main(int argv, char * argc[])
 	avcore.add_route(".+@.+", me_addr, avinterface->get_ifname(), 100);
 
 	// 进入 IM 过程，发送一个 test  到 test2@avplayer.org
-	avcore.sendto("test@avplayer.org", "test");
+	avcore.sendto("test@avplayer.org", "test, me are testing you stupid avim");
 
 	// 开协程异步接收消息
 
