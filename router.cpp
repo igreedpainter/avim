@@ -23,7 +23,7 @@ static std::string  get_new_radom_address()
 {
 	static int t = 0;
 
-	return boost::str( boost::format("avrouter_%1@avplayer.org") % t ++ );
+	return boost::str( boost::format("avrouter@avplayer.org/%d") % t ++ );
 }
 
 // 处理客户端
