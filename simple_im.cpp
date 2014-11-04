@@ -59,7 +59,7 @@ int main(int argv, char * argc[])
 	avcore.add_route(".+@.+", me_addr, avinterface->get_ifname(), 100);
 
 	// 进入 IM 过程，发送一个 test  到 test2@avplayer.org
-	avcore.sendto("test2@avplayer.org", "test");
+	avcore.sendto("test@avplayer.org", "test");
 
 	io_service.run();
 }
