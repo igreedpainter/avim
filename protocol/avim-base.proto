@@ -14,6 +14,7 @@ message avPacket{
 	required avAddress src = 1 ; // 发送方地址
 	required avAddress dest = 2; // 目的地地址
 	optional bytes publickey = 3 ; // 客户端公钥
+	required uint32 time_to_live = 4 [ default = 64 ];
 	required string upperlayerpotocol = 6 [ default = "avim" ] ; // 表明上层软件是何种协议。
 	optional uint32 encrype_method = 7 [ default = 0 ]; // 加密类型， 目前就定义了 0 表示， RSA 加密。必须是对称体系
 
