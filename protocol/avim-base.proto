@@ -18,6 +18,12 @@ message avPacket{
 	required string upperlayerpotocol = 6 [ default = "avim" ] ; // 表明上层软件是何种协议。
 	optional uint32 encrype_method = 7 [ default = 0 ]; // 加密类型， 目前就定义了 0 表示， RSA 加密。必须是对称体系
 
+	optional bool msg_dont_route = 9;
+
+	// 这个表示需要对方返回一个消息已经收到的提示
+	optional bool need_ack = 10;
+	optional uint64 ack_seq = 11;
+
 	// 可选的消息内容, 消息一定是用 src 的私钥加密的，因此必须首先用 src 的公钥解密
 	// 解密后的消息，还得必须再次用 dest 的 私钥解密。但是对于一些特定的消息，
 	// 因为 src 并不知道 dest 的公钥，所以可能用 src 的公钥解密后就是名文了。
