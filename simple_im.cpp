@@ -1,6 +1,5 @@
 
 #include <string>
-#include <unistd.h>
 #include <boost/format.hpp>
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
@@ -18,6 +17,18 @@
 static boost::asio::io_service io_service;
 
 avkernel avcore(io_service);
+
+static void msg_reader(boost::asio::yield_context yield_context)
+{
+	boost::system::error_code ec;
+	std::string sender, data;
+
+	for(;;)
+	{
+
+		// avcore.async_recvfrom(sender, data, yield_context);
+	}
+}
 
 int main(int argv, char * argc[])
 {
@@ -61,6 +72,9 @@ int main(int argv, char * argc[])
 	// 进入 IM 过程，发送一个 test  到 test2@avplayer.org
 	avcore.sendto("test@avplayer.org", "test");
 
+	// 开协程异步接收消息
+
+	boost::asio::spawn(io_service, msg_reader);
 	io_service.run();
 }
 
