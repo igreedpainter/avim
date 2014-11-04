@@ -27,12 +27,10 @@ static std::string  get_new_radom_address()
 }
 
 // 处理客户端
-static void process_client(boost::asio::yield_context yielder, boost::shared_ptr<boost::asio::ip::tcp::socket> client_sock)
+static void process_client(boost::asio::yield_context yielder, boost::shared_ptr<boost::asio::ip::tcp::socket> client_sock, RSA * rsa_key)
 {
 	boost::system::error_code ec;
 
-	// TODO rsa key 加载
-	RSA * rsa_key = NULL; // RSA_new();
 	X509 * x509_cert = NULL;
 	// 生成一个新的 av地址
 	std::string me_addr = get_new_radom_address();
@@ -63,7 +61,7 @@ static void async_acceptor(boost::asio::yield_context yielder, int port, RSA * p
 
 		// 进入 client 处理
 		if(!ec)
-			boost::asio::spawn(io_service, boost::bind(&process_client, _1, client_sock));
+			boost::asio::spawn(io_service, boost::bind(&process_client, _1, client_sock, privatekey));
 	}
 }
 
