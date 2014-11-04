@@ -21,8 +21,13 @@ message avPacket{
 	optional bool msg_dont_route = 9;
 
 	// 这个表示需要对方返回一个消息已经收到的提示
-	optional bool need_ack = 10;
-	optional uint64 ack_seq = 11;
+	// 对方需要使用 agmp 协议返回一个确认消息
+	// 收到后 客户端的 av_send 才会返回成功
+	// 否则会超时一段时间后重发，3次重试后返回失败
+	message ack_control{
+		required uint64 ack_seq = 1;
+	};
+	optional ack_control need_seq = 11;
 
 	// 可选的消息内容, 消息一定是用 src 的私钥加密的，因此必须首先用 src 的公钥解密
 	// 解密后的消息，还得必须再次用 dest 的 私钥解密。但是对于一些特定的消息，
