@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.9)
 
 project(avim)
 
-option(RUN_PROTOC "run protoc to generate protobuf protocol parser" OFF)
+option(RUN_PROTOC "run protoc to generate protobuf protocol parser" ON)
 
 find_package(Threads REQUIRED)
 find_package(Boost 1.54 REQUIRED thread system coroutine context regex)
