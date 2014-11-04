@@ -22,7 +22,11 @@ include_directories(.)
 
 link_libraries(${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${PKCS11_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 
+if(CMAKE_COMPILER_IS_GNUCXX)
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+endif()
 
 link_libraries(${PROTOBUF_LIBRARIES})
 
