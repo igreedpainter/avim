@@ -45,7 +45,7 @@ static void process_client(boost::asio::yield_context yielder, boost::shared_ptr
 	avcore.add_interface(avinterface);
 
 	// 添加路由表
-	avcore.add_route(avinterface->remote_addr(), me_addr, avinterface->get_ifname());
+	avcore.add_route(avinterface->remote_addr(), me_addr, avinterface->get_ifname(), 0);
 }
 
 static void async_acceptor(boost::asio::yield_context yielder, int port, RSA * privatekey)

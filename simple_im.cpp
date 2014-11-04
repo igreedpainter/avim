@@ -55,8 +55,8 @@ int main(int argv, char * argc[])
 
 	avcore.add_interface(avinterface);
 
-	// 添加路由表
-	avcore.add_route(".+@.+", me_addr, avinterface->get_ifname());
+	// 添加路由表, metric越大，优先级越低
+	avcore.add_route(".+@.+", me_addr, avinterface->get_ifname(), 100);
 
 	// 进入 IM 过程，发送一个 test  到 test2@avplayer.org
 	avcore.sendto("test2@avplayer.org", "test");
