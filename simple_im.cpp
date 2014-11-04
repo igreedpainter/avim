@@ -22,7 +22,6 @@ avkernel avcore(io_service);
 int main(int argv, char * argc[])
 {
 	// TODO, 加载 ~/.avim/id_rsa.key 和 ~/.avim/id_rsa.cert
-
 	extern const char * pem_private_key_s;
 
 	BIO * keyfile = BIO_new_mem_buf((void*)pem_private_key_s, strlen(pem_private_key_s));
