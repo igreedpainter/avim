@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 2.8.9)
 
 project(avim)
 
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+set(CMAKE_COMPILER_IS_CLANGXX 1)
+endif()
+
 option(RUN_PROTOC "run protoc to generate protobuf protocol parser" ON)
 
 find_package(Threads REQUIRED)
@@ -22,7 +26,7 @@ include_directories(.)
 
 link_libraries(${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${PKCS11_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 
-if(CMAKE_COMPILER_IS_GNUCXX)
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_CLANGXX)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
