@@ -34,6 +34,18 @@ avim　是一个完全全新设计的IM协议，同时也是一个同名的C++�
 
 protobuf, boost，　Qt(客户端only)
 
+### protobuf
+	protobuf 从这个地方下载
+
+	https://github.com/google/protobuf/releases
+
+### boost
+
+	boost 从这个地方下载
+
+	http://www.boost.org/users/history/version_1_57_0.html
+
+
 ## 协议
 协议本身将进入　public domain，允许任何人自行实现。
 avplayer.org社区提供的avim协议实现avim，将采用　LGPL 许可证，以便允许商业二次开发。
