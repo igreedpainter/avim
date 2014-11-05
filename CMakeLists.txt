@@ -4,6 +4,8 @@ project(avim)
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 set(CMAKE_COMPILER_IS_CLANGXX 1)
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
+set(CMAKE_COMPILER_IS_ICC 1)
 endif()
 
 option(RUN_PROTOC "run protoc to generate protobuf protocol parser" ON)
@@ -26,7 +28,7 @@ include_directories(.)
 
 link_libraries(${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${PKCS11_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_CLANGXX)
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_CLANGXX OR CMAKE_COMPILER_IS_ICC)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
