@@ -551,6 +551,18 @@ GenerateClassDefinition(io::Printer* printer) {
     "  CopyFrom(from);\n"
     "  return *this;\n"
     "}\n"
+    "\n"
+    "#if __cplusplus >= 201103L || _MSC_VER >= 1600\n"
+    "inline $classname$& operator=($classname$&& from) {\n"
+    "  if (&from != this) {\n"
+    "    Clear();\n"
+    "    Swap(&from);\n"
+    "  }\n"
+    "  return *this;\n"
+    "}\n"
+    "\n"
+    "$classname$($classname$&& from);\n"
+    "#endif\n"
     "\n");
 
   if (UseUnknownFieldSet(descriptor_->file())) {
@@ -1453,6 +1465,18 @@ GenerateStructors(io::Printer* printer) {
 
   // Generate the shared constructor code.
   GenerateSharedConstructorCode(printer);
+
+  // Generate the move constructor.
+  printer->Print(
+    "#if __cplusplus >= 201103L || _MSC_VER >= 1600\n"
+    "$classname$::$classname$($classname$&& from)\n"
+    "  : $superclass$() {\n"
+    "  Swap(&from);\n"
+    "}\n"
+    "#endif\n"
+    "\n",
+    "classname", classname_,
+    "superclass", superclass);
 
   // Generate the destructor.
   printer->Print(
